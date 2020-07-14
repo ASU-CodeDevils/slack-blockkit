@@ -15,7 +15,7 @@ jobs:
       script:
         - "flake8"
 
-    - name: "Flask Test"
+    - name: "Test suite"
       before_install:
         - sudo apt-get update -qq
         - sudo apt-get install -qq build-essential gettext python-dev zlib1g-dev xvfb

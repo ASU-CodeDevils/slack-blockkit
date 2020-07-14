@@ -1,9 +1,6 @@
-import codecs
-import os
-import re
-from setuptools import setup, find_packages
+from setuptools import setup
 
-from src import slack_blockkit
+import slack_blockkit
 
 def readme(file: str):
     with open(file) as f:

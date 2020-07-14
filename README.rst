@@ -1,11 +1,11 @@
 Slack Blockkit Builder
 ======================
 
-.. image:: https://travis-ci.com/ASU-CodeDevils/codedevils_org.svg?token=FhsGC7ZUMb7rskmp3jDy&branch=master
-    :target: https://travis-ci.com/ASU-CodeDevils/codedevils_org
+.. image:: https://travis-ci.com/ASU-CodeDevils/slack-blockkit.svg?branch=master
+    :target: https://travis-ci.com/ASU-CodeDevils/slack-blockkit
     :alt: Build
-.. image:: https://codecov.io/gh/ASU-CodeDevils/codedevils_org/branch/master/graph/badge.svg?token=FF94MF9N4M
-    :target: https://codecov.io/gh/ASU-CodeDevils/codedevils_org
+.. image:: https://codecov.io/gh/ASU-CodeDevils/slack-blockkit/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/ASU-CodeDevils/slack-blockkit
     :alt: Codecov
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/ambv/black
