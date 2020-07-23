@@ -1,8 +1,10 @@
+from typing import List
+
 from .block import Block
 from .composition_object import TextObject
 
 
-class ViewPayload(Block):
+class ViewPayload:
     """
     Defines a view payload. For more information, see: https://api.slack.com/reference/surfaces/views
     """
@@ -14,7 +16,7 @@ class ViewPayload(Block):
         self,
         btype: str,
         title: TextObject,
-        blocks: list,
+        blocks: List[Block],
         close: TextObject = None,
         submit: TextObject = None,
         private_metadata: str = None,
@@ -30,6 +32,15 @@ class ViewPayload(Block):
             raise AttributeError(
                 f"Invalid btype. Type must be {self.BTYPE_HOME} or {self.BTYPE_MODAL}: {btype}"
             )
+        
+        # title must be plain text and 24 characters or less
+        if not title.is_plain_text():
+            raise AttributeError("title must be plain text")
+        if title.get_text_length() > 24:
+            raise AttributeError(
+                    f"title text must be 24 characters or less, but length "
+                    f"is {close.get_text_length()}"
+                )
 
         # close must be plain text and 24 characters or less
         if close:
@@ -102,3 +113,61 @@ class ViewPayload(Block):
             block.update({"external_id": self.external_id})
 
         return block
+    
+    def get_payload(self) -> dict:
+        """
+        Syntactic sugar to return the ``render()`` payload as a ``dict``.
+
+        :return: The result of the ``render()`` method.
+        """
+        return self.render()
+
+
+class HomeViewPayload(ViewPayload):
+    """
+    Defines a home view payload. Syntactic sugar for the `ViewPayload` class where the `btype` is set to
+    *home*.
+    """
+    def __init__(
+            self,
+            title: TextObject,
+            blocks: List[Block],
+            close: TextObject = None,
+            submit: TextObject = None,
+            private_metadata: str = None,
+            callback_id: str = None,
+            clear_on_close: bool = False,
+            notify_on_close: bool = False,
+            external_id: str = None,
+    ):
+        super().__init__(
+            btype=ViewPayload.BTYPE_HOME,
+            title=title, blocks=blocks, close=close, submit=submit, private_metadata=private_metadata,
+            callback_id=callback_id, clear_on_close=clear_on_close, notify_on_close=notify_on_close,
+            external_id=external_id
+        )
+
+
+class ModalViewPayload(ViewPayload):
+    """
+    Defines a modal view payload. Syntactic sugar for the `ViewPayload` class where the `btype` is set to
+    *modal*.
+    """
+    def __init__(
+            self,
+            title: TextObject,
+            blocks: List[Block],
+            close: TextObject = None,
+            submit: TextObject = None,
+            private_metadata: str = None,
+            callback_id: str = None,
+            clear_on_close: bool = False,
+            notify_on_close: bool = False,
+            external_id: str = None,
+    ):
+        super().__init__(
+            btype=ViewPayload.BTYPE_MODAL,
+            title=title, blocks=blocks, close=close, submit=submit, private_metadata=private_metadata,
+            callback_id=callback_id, clear_on_close=clear_on_close, notify_on_close=notify_on_close,
+            external_id=external_id
+        )

@@ -1,3 +1,5 @@
+from typing import List
+
 from .block import Block
 from .composition_object import TextObject
 from .block_element import BlockElement
@@ -9,21 +11,9 @@ class LayoutBlock(Block):
     """
 
     def __init__(self, btype: str, block_id: str = None):
-        if block_id and len(block_id) > 255:
-            raise AttributeError(
-                f"block_id cannot be greater than 255 characters, but is {block_id}"
-            )
-
         self.btype = btype
         self.block_id = block_id
-
-    def render(self) -> dict:
-        block = {"type": self.btype}
-
-        if self.block_id:
-            block.update({"block_id": self.block_id})
-
-        return block
+        super().__init__(btype=btype, block_id=block_id)
 
 
 class ActionsBlock(LayoutBlock):
@@ -32,21 +22,13 @@ class ActionsBlock(LayoutBlock):
     https://api.slack.com/reference/block-kit/blocks#actions
     """
 
-    def __init__(self, elements: list, block_id: str = None):
+    def __init__(self, elements: List[BlockElement]):
         # validate_input
         if len(elements) > 5:
             raise AttributeError("cannot have more than 5 elements in action blocks")
 
-        super().__init__(btype="actions", block_id=block_id)
+        super().__init__(btype="actions")
         self.elements = elements
-
-    def render(self) -> dict:
-        block = {"type": self.btype, "elements": self.elements}
-
-        if self.block_id:
-            block.update({"block_id": self.block_id})
-
-        return block
 
 
 class ContextBlock(LayoutBlock):
@@ -62,14 +44,6 @@ class ContextBlock(LayoutBlock):
 
         super().__init__(btype="context", block_id=block_id)
         self.elements = elements
-
-    def render(self) -> dict:
-        block = {"type": self.btype, "elements": self.elements}
-
-        if self.block_id:
-            block.update({"block_id": self.block_id})
-
-        return block
 
 
 class DividerBlock(LayoutBlock):
@@ -92,18 +66,6 @@ class FileBlock(LayoutBlock):
         self.external_id = external_id
         self.source = source
 
-    def render(self) -> dict:
-        block = {
-            "type": self.btype,
-            "external_id": self.external_id,
-            "source": self.source,
-        }
-
-        if self.block_id:
-            block.update({"block_id": self.block_id})
-
-        return block
-
 
 class ImageBlock(LayoutBlock):
     """
@@ -123,7 +85,7 @@ class ImageBlock(LayoutBlock):
         self.validate_input("alt_text", alt_text, max_length=2000)
         if title:
             title.validate_text_block(
-                max_length=200, required_type=TextObject.BTYPE_PLAIN_TEXT
+                max_length=200, required_type=TextObject.BTYPE_PLAINTEXT
             )
 
         # initialize the parent
@@ -133,21 +95,6 @@ class ImageBlock(LayoutBlock):
         self.image_url = image_url
         self.alt_text = alt_text
         self.title = title
-
-    def render(self) -> dict:
-        block = {
-            "type": self.btype,
-            "image_url": self.image_url,
-            "alt_text": self.alt_text,
-        }
-
-        # add optional fields if specified
-        if self.title:
-            block.update({"title": self.title.render()})
-        if self.block_id:
-            block.update({"block_id": self.block_id})
-
-        return block
 
 
 class InputBlock(LayoutBlock):
@@ -167,11 +114,11 @@ class InputBlock(LayoutBlock):
     ):
         # validate input
         label.validate_text_block(
-            max_length=2000, required_type=TextObject.BTYPE_PLAIN_TEXT
+            max_length=2000, required_type=TextObject.BTYPE_PLAINTEXT
         )
         if hint:
             hint.validate_text_block(
-                max_length=2000, required_type=TextObject.BTYPE_PLAIN_TEXT
+                max_length=2000, required_type=TextObject.BTYPE_PLAINTEXT
             )
 
         super().__init__(btype="input", block_id=block_id)
@@ -180,21 +127,6 @@ class InputBlock(LayoutBlock):
         self.element = element
         self.hint = hint
         self.optional = optional
-
-    def render(self) -> dict:
-        block = {
-            "type": self.btype,
-            "label": self.label,
-            "element": self.element,
-            "optional": self.optional,
-        }
-
-        if self.block_id:
-            block.update({"block_id", self.block_id})
-        if self.hint:
-            block.update({"hint": self.hint})
-
-        return block
 
 
 class SectionBlock(LayoutBlock):
@@ -206,7 +138,7 @@ class SectionBlock(LayoutBlock):
         self,
         text: TextObject,
         block_id: str = None,
-        fields: list = None,
+        fields: List[TextObject] = None,
         accessory: BlockElement = None,
     ):
         super().__init__(btype="section", block_id=block_id)
@@ -218,27 +150,6 @@ class SectionBlock(LayoutBlock):
                 f"text cannot be more than 3000 characters, but got {text.get_text_length()}"
             )
 
-        if block_id and len(block_id) > 255:
-            raise AttributeError(
-                f"block_id cannot be more than 255 characters, but got {len(block_id)}"
-            )
-
         self.text = text
-        self.block_id = block_id
         self.fields = fields
         self.accessory = accessory
-
-    def render(self) -> dict:
-        block = {
-            "type": self.btype,
-            "text": self.text.render(),
-        }
-
-        if self.block_id:
-            block.update({"block_id": self.block_id})
-        if self.fields:
-            block.update({"fields": self.fields})
-        if self.accessory:
-            block.update({"accessory": self.accessory.render()})
-
-        return block

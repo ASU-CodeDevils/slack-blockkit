@@ -1,4 +1,5 @@
 from datetime import date
+from typing import List
 
 from .block import Block
 from .composition_object import (
@@ -7,6 +8,7 @@ from .composition_object import (
     OptionObject,
     TextObject,
 )
+from slack_blockkit.utils import get_validated_input
 
 
 class BlockElement(Block):
@@ -16,21 +18,8 @@ class BlockElement(Block):
 
     def __init__(self, btype: str, action_id: str = None):
         # validate the action id
-        if action_id and len(action_id) > 255:
-            raise AttributeError(
-                f"action_id cannot be more than 255 characters long, but is {len(action_id)}"
-            )
-
-        self.btype = btype
-        self.action_id = action_id
-
-    def render(self) -> dict:
-        block = {"type": self.btype}
-
-        if self.action_id:
-            block.update({"action_id": self.action_id})
-
-        return block
+        self.action_id = get_validated_input(action_id, str, min_length=0, max_length=255)
+        super().__init__(btype=btype)
 
 
 class ButtonElement(BlockElement):
@@ -55,7 +44,7 @@ class ButtonElement(BlockElement):
     ):
         # validate input
         text.validate_text_block(
-            max_length=75, required_type=TextObject.BTYPE_PLAIN_TEXT
+            max_length=75, required_type=TextObject.BTYPE_PLAINTEXT
         )
         self.validate_input("url", url, max_length=3000)
         self.validate_input("value", value, max_length=2000)
@@ -65,31 +54,70 @@ class ButtonElement(BlockElement):
             equality_fields=[self.STYLE_DANGER, self.STYLE_DEFAULT, self.STYLE_PRIMARY],
         )
 
-        super().__init__(btype="button", action_id=action_id)
-
         self.text = text
         self.url = url
         self.value = value
         self.style = style
         self.confirm = confirm
 
-    def render(self) -> dict:
-        block = {
-            "type": self.btype,
-            "text": self.text.render(),
-            "action_id": self.action_id,
-        }
+        super().__init__(btype="button", action_id=action_id)
 
-        if self.url:
-            block.update({"url": self.url})
-        if self.value:
-            block.update({"value": self.value})
-        if self.style:
-            block.update({"style": self.style})
-        if self.confirm:
-            block.update({"confirm": self.confirm.render()})
 
-        return block
+class PrimaryButtonElement(ButtonElement):
+    def __init__(
+        self,
+        text: TextObject,
+        action_id: str,
+        url: str = None,
+        value: str = None,
+        confirm: ConfirmObject = None,
+    ):
+        super().__init__(
+            style=ButtonElement.STYLE_PRIMARY,
+            text=text,
+            action_id=action_id,
+            url=url,
+            value=value,
+            confirm=confirm
+        )
+
+
+class DangerButtonElement(ButtonElement):
+    def __init__(
+        self,
+        text: TextObject,
+        action_id: str,
+        url: str = None,
+        value: str = None,
+        confirm: ConfirmObject = None,
+    ):
+        super().__init__(
+            style=ButtonElement.STYLE_DANGER,
+            text=text,
+            action_id=action_id,
+            url=url,
+            value=value,
+            confirm=confirm
+        )
+
+
+class DefaultButtonElement(ButtonElement):
+    def __init__(
+        self,
+        text: TextObject,
+        action_id: str,
+        url: str = None,
+        value: str = None,
+        confirm: ConfirmObject = None,
+    ):
+        super().__init__(
+            style=ButtonElement.STYLE_DEFAULT,
+            text=text,
+            action_id=action_id,
+            url=url,
+            value=value,
+            confirm=confirm
+        )
 
 
 class DatepickerElement(BlockElement):
@@ -107,7 +135,7 @@ class DatepickerElement(BlockElement):
     ):
         # validate input
         placeholder.validate_text_block(
-            max_length=150, required_type=TextObject.BTYPE_PLAIN_TEXT
+            max_length=150, required_type=TextObject.BTYPE_PLAINTEXT
         )
 
         # set date if not already set
@@ -119,19 +147,6 @@ class DatepickerElement(BlockElement):
         self.placeholder = placeholder
         self.initial_date = initial_date
         self.confirm = confirm
-
-    def render(self) -> dict:
-        block = {
-            "type": self.btype,
-            "action_id": self.action_id,
-            "placeholder": self.placeholder.render(),
-            "initial_date": self.initial_date,
-        }
-
-        if self.confirm:
-            block.update({"confirm": self.confirm.render()})
-
-        return block
 
 
 class ImageElement(BlockElement):
@@ -146,13 +161,6 @@ class ImageElement(BlockElement):
         self.image_url = image_url
         self.alt_text = alt_text
 
-    def render(self) -> dict:
-        return {
-            "type": self.btype,
-            "image_url": self.image_url,
-            "alt_text": self.alt_text,
-        }
-
 
 class OverflowElement(BlockElement):
     """
@@ -163,26 +171,14 @@ class OverflowElement(BlockElement):
     """
 
     def __init__(
-        self, action_id: str, options: [OptionObject], confirm: ConfirmObject = None
+        self, action_id: str, options: List[OptionObject], confirm: ConfirmObject = None
     ):
         # validate input
-        if len(options) > 5 or len(options) < 2:
+        if options and (len(options) > 5 or len(options) < 2):
             raise AttributeError("Must have between 2 and 5 options (inclusive)")
         super().__init__(btype="overflow", action_id=action_id)
         self.options = options
         self.confirm = confirm
-
-    def render(self) -> dict:
-        block = {
-            "type": self.btype,
-            "action_id": self.action_id,
-            "options": OptionGroupObject.expand_options_group(self.options),
-        }
-
-        if self.confirm:
-            block.update({"confirm": self.confirm.render()})
-
-        return block
 
 
 class PlainTextInputElement(BlockElement):
@@ -204,7 +200,7 @@ class PlainTextInputElement(BlockElement):
         # validate input
         if placeholder:
             placeholder.validate_text_block(
-                max_length=150, required_type=TextObject.BTYPE_PLAIN_TEXT
+                max_length=150, required_type=TextObject.BTYPE_PLAINTEXT
             )
 
         if min_length != 0 or max_length != 0:
@@ -229,24 +225,6 @@ class PlainTextInputElement(BlockElement):
         self.min_length = min_length
         self.max_length = max_length
 
-    def render(self) -> dict:
-        block = {
-            "type": self.btype,
-            "action_id": self.action_id,
-            "multiline": self.multiline,
-        }
-
-        if self.placeholder:
-            block.update({"placeholder": self.placeholder.render()})
-        if self.initial_value:
-            block.update({"initial_value": self.initial_value})
-        if self.min_length != 0:
-            block.update({"min_length": self.min_length})
-        if self.max_length != 0:
-            block.update({"max_length": self.max_length})
-
-        return block
-
 
 class RadioButtonGroupElement(BlockElement):
     """
@@ -257,7 +235,7 @@ class RadioButtonGroupElement(BlockElement):
     def __init__(
         self,
         action_id: str,
-        options: [OptionObject],
+        options: List[OptionObject],
         intitial_option: OptionObject = None,
         confirm: ConfirmObject = None,
     ):
@@ -269,17 +247,3 @@ class RadioButtonGroupElement(BlockElement):
         self.options = options
         self.initial_option = intitial_option
         self.confirm = confirm
-
-    def render(self) -> dict:
-        block = {
-            "type": self.btype,
-            "action_id": self.action_id,
-            "options": OptionGroupObject.expand_options_group(self.options),
-        }
-
-        if self.initial_option:
-            block.update({"initial_option": self.initial_option.render()})
-        if self.confirm:
-            block.update({"confirm": self.confirm.render()})
-
-        return block
