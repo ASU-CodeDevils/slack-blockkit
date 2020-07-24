@@ -1,10 +1,6 @@
-from typing import List
-
-from slack_blockkit.block import Block
 from slack_blockkit.block_element import BlockElement, ImageElement
 from slack_blockkit.composition_object import MarkdownTextObject, TextObject
 from slack_blockkit.layout_block import SectionBlock
-from slack_blockkit.utils.utils import get_blocks
 
 
 def get_checkmark(task_completed: bool) -> str:
@@ -86,5 +82,5 @@ def get_task_block(text: str, info_link: str, info_text: str) -> list:
     """
     return [
         MarkdownTextObject(text=text).render(),
-        get_information_block(info_link=info_link, info_text=info_text),
+        get_information_block(link=info_link, text=info_text),
     ]

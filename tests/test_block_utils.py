@@ -2,8 +2,8 @@
 Test block utils.
 """
 
+from slack_blockkit.utils import get_blocks
 from slack_blockkit.utils.blocks import (
-    get_blocks,
     get_checkmark,
     get_information_block,
     get_task_block,
@@ -73,3 +73,26 @@ def test_get_text_block_with_image():
     assert accessory["type"] == "image"
     assert accessory["image_url"] == image_url
     assert accessory["alt_text"] == alt_text
+
+
+def test_get_task_block():
+    text = "Complete this objective"
+    info_link = "https://codedevils.org/todo/1"
+    info_text = "Complete"
+    task_block = get_task_block(text=text, info_link=info_link, info_text=info_text)
+    assert task_block == [
+        {
+            "type": task_block[0]["type"],
+            "block_id": task_block[0]["block_id"],
+            "text": task_block[0]["text"],
+            "emoji": task_block[0]["emoji"],
+            "verbatim": task_block[0]["verbatim"]
+        },
+        {
+            "type": task_block[1]["type"],
+            "block_id": task_block[1]["block_id"],
+            "text": task_block[1]["text"],
+            "emoji": task_block[1]["emoji"],
+            "verbatim": task_block[1]["verbatim"]
+        }
+    ]

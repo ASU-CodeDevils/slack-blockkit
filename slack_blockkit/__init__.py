@@ -6,4 +6,4 @@ __version_info__ = tuple(
     ]
 )
 
-from slack_blockkit.block import Block
+from slack_blockkit.block import Block  # noqa F401

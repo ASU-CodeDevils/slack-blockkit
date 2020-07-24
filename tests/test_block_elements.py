@@ -1,13 +1,8 @@
 """
 Tests block elements.
 """
-from typing import List
-
 from slack_blockkit.block_element import (
-    BlockElement,
-    DangerButtonElement,
     DatepickerElement,
-    DefaultButtonElement,
     ImageElement,
     OverflowElement,
     PlainTextInputElement,
