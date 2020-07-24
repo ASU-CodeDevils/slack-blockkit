@@ -47,7 +47,7 @@ Categories
 
 .. warning::
 
-    Some interactive components are not implemented in version 0.0.1
+    Some interactive components are not implemented in version 0.0.3
 
 Example Usage
 *************
@@ -65,7 +65,7 @@ Blocks are inserted into a list as dicts. Each component comes with a `render()`
 
 .. code-block:: python
 
-    text_object.render()  # {'type': 'mrkdwn', 'text': 'This is a text block'}
+    text_object.render()  # {"type": "mrkdwn", "block_id": "<uuid>", "text": "This is a text block"}
 
 .. note::
 
@@ -95,13 +95,16 @@ Which makes ``blocks``:
 
     {
         "type": "mrkdwn",
+        "block_id": "<uuid>",
         "text": "Welcome to CodeDevils!"
     },
     {
         "type": "divider"
+        "block_id": "<uuid>"
     },
     {
         "type": "image",
+        "block_id": "<uuid>",
         "image_url": "https://codedevils.org/static/img/logo",
         "alt_text": "Logo"
     }
