@@ -18,7 +18,9 @@ class BlockElement(Block):
 
     def __init__(self, btype: str, action_id: str = None):
         # validate the action id
-        self.action_id = get_validated_input(action_id, str, min_length=0, max_length=255)
+        self.action_id = get_validated_input(
+            action_id, str, min_length=0, max_length=255
+        )
         super().__init__(btype=btype)
 
 
@@ -78,7 +80,7 @@ class PrimaryButtonElement(ButtonElement):
             action_id=action_id,
             url=url,
             value=value,
-            confirm=confirm
+            confirm=confirm,
         )
 
 
@@ -97,7 +99,7 @@ class DangerButtonElement(ButtonElement):
             action_id=action_id,
             url=url,
             value=value,
-            confirm=confirm
+            confirm=confirm,
         )
 
 
@@ -116,7 +118,7 @@ class DefaultButtonElement(ButtonElement):
             action_id=action_id,
             url=url,
             value=value,
-            confirm=confirm
+            confirm=confirm,
         )
 
 

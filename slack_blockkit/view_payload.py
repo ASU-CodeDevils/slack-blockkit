@@ -32,15 +32,15 @@ class ViewPayload:
             raise AttributeError(
                 f"Invalid btype. Type must be {self.BTYPE_HOME} or {self.BTYPE_MODAL}: {btype}"
             )
-        
+
         # title must be plain text and 24 characters or less
         if not title.is_plain_text():
             raise AttributeError("title must be plain text")
         if title.get_text_length() > 24:
             raise AttributeError(
-                    f"title text must be 24 characters or less, but length "
-                    f"is {close.get_text_length()}"
-                )
+                f"title text must be 24 characters or less, but length "
+                f"is {close.get_text_length()}"
+            )
 
         # close must be plain text and 24 characters or less
         if close:
@@ -113,7 +113,7 @@ class ViewPayload:
             block.update({"external_id": self.external_id})
 
         return block
-    
+
     def get_payload(self) -> dict:
         """
         Syntactic sugar to return the ``render()`` payload as a ``dict``.
@@ -128,23 +128,30 @@ class HomeViewPayload(ViewPayload):
     Defines a home view payload. Syntactic sugar for the `ViewPayload` class where the `btype` is set to
     *home*.
     """
+
     def __init__(
-            self,
-            title: TextObject,
-            blocks: List[Block],
-            close: TextObject = None,
-            submit: TextObject = None,
-            private_metadata: str = None,
-            callback_id: str = None,
-            clear_on_close: bool = False,
-            notify_on_close: bool = False,
-            external_id: str = None,
+        self,
+        title: TextObject,
+        blocks: List[Block],
+        close: TextObject = None,
+        submit: TextObject = None,
+        private_metadata: str = None,
+        callback_id: str = None,
+        clear_on_close: bool = False,
+        notify_on_close: bool = False,
+        external_id: str = None,
     ):
         super().__init__(
             btype=ViewPayload.BTYPE_HOME,
-            title=title, blocks=blocks, close=close, submit=submit, private_metadata=private_metadata,
-            callback_id=callback_id, clear_on_close=clear_on_close, notify_on_close=notify_on_close,
-            external_id=external_id
+            title=title,
+            blocks=blocks,
+            close=close,
+            submit=submit,
+            private_metadata=private_metadata,
+            callback_id=callback_id,
+            clear_on_close=clear_on_close,
+            notify_on_close=notify_on_close,
+            external_id=external_id,
         )
 
 
@@ -153,21 +160,28 @@ class ModalViewPayload(ViewPayload):
     Defines a modal view payload. Syntactic sugar for the `ViewPayload` class where the `btype` is set to
     *modal*.
     """
+
     def __init__(
-            self,
-            title: TextObject,
-            blocks: List[Block],
-            close: TextObject = None,
-            submit: TextObject = None,
-            private_metadata: str = None,
-            callback_id: str = None,
-            clear_on_close: bool = False,
-            notify_on_close: bool = False,
-            external_id: str = None,
+        self,
+        title: TextObject,
+        blocks: List[Block],
+        close: TextObject = None,
+        submit: TextObject = None,
+        private_metadata: str = None,
+        callback_id: str = None,
+        clear_on_close: bool = False,
+        notify_on_close: bool = False,
+        external_id: str = None,
     ):
         super().__init__(
             btype=ViewPayload.BTYPE_MODAL,
-            title=title, blocks=blocks, close=close, submit=submit, private_metadata=private_metadata,
-            callback_id=callback_id, clear_on_close=clear_on_close, notify_on_close=notify_on_close,
-            external_id=external_id
+            title=title,
+            blocks=blocks,
+            close=close,
+            submit=submit,
+            private_metadata=private_metadata,
+            callback_id=callback_id,
+            clear_on_close=clear_on_close,
+            notify_on_close=notify_on_close,
+            external_id=external_id,
         )

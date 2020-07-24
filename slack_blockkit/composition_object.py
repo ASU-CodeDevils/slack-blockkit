@@ -13,9 +13,13 @@ class TextObject(Block):
     BTYPE_PLAINTEXT = "plain_text"
     BTYPE_MARKDOWN = "mrkdwn"
 
-    def __init__(self, btype: str, text: str, emoji: bool = False, verbatim: bool = False):
+    def __init__(
+        self, btype: str, text: str, emoji: bool = False, verbatim: bool = False
+    ):
         # validate that the type is correct
-        self.btype = get_validated_input(btype, str, equality_fields=[self.BTYPE_PLAINTEXT, self.BTYPE_MARKDOWN])
+        self.btype = get_validated_input(
+            btype, str, equality_fields=[self.BTYPE_PLAINTEXT, self.BTYPE_MARKDOWN]
+        )
         self.text = text
 
         # emoji field is only usable if the type is plain text
@@ -50,12 +54,10 @@ class PlainTextObject(TextObject):
     """
     Represents a plain-text object. This is a `TextObject` where `btype` is set to *plain_text*.
     """
+
     def __init__(self, text: str):
         super().__init__(
-            btype=TextObject.BTYPE_PLAINTEXT,
-            text=text,
-            emoji=False,
-            verbatim=False
+            btype=TextObject.BTYPE_PLAINTEXT, text=text, emoji=False, verbatim=False
         )
 
     def render(self):
@@ -69,12 +71,10 @@ class MarkdownTextObject(TextObject):
     """
     Represents a markdown text object. This is a `TextObject` where `btype` is set to *mrkdwn*.
     """
+
     def __init__(self, text: str, emoji: bool = False, verbatim: bool = False):
         super().__init__(
-            btype=TextObject.BTYPE_MARKDOWN,
-            text=text,
-            emoji=emoji,
-            verbatim=verbatim
+            btype=TextObject.BTYPE_MARKDOWN, text=text, emoji=emoji, verbatim=verbatim
         )
 
 
@@ -85,7 +85,9 @@ class ConfirmObject(Block):
     https://api.slack.com/reference/block-kit/composition-objects#confirm
     """
 
-    def __init__(self, title: TextObject, text: TextObject, confirm: TextObject, deny: TextObject):
+    def __init__(
+        self, title: TextObject, text: TextObject, confirm: TextObject, deny: TextObject
+    ):
         super().__init__(btype=None)
         # validate input
         title.validate_text_block(
@@ -113,6 +115,7 @@ class OptionObject(Block):
     or overflow menu. For more information, see:
     https://api.slack.com/reference/block-kit/composition-objects#option
     """
+
     TEXT_MAX_LENGTH = 75
     URL_MAX_LENGTH = 3000
     VALUE_MAX_LENGTH = 75
@@ -133,6 +136,7 @@ class OptionGroupObject(Block):
     Provides a way to group options in a select menu or multi-select menu. For more information, see:
     https://api.slack.com/reference/block-kit/composition-objects#option_group
     """
+
     LABEL_MAX_LENGTH = 75
 
     def __init__(self, label: TextObject, options: List[OptionObject]):
@@ -142,7 +146,9 @@ class OptionGroupObject(Block):
             max_length=self.LABEL_MAX_LENGTH, required_type=TextObject.BTYPE_PLAINTEXT
         )
         if not isinstance(options[0], OptionObject):
-            raise AttributeError("options list needs to be a list of OptionObject objects")
+            raise AttributeError(
+                "options list needs to be a list of OptionObject objects"
+            )
         if len(options) > 100:
             raise AttributeError("options list cannot exceed 100 options")
 

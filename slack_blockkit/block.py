@@ -12,12 +12,14 @@ class RenderMixin:
         :rtype: dict
         """
         # extract the values and their keys who are not None
-        vars_dict = {key: value for key, value in vars(self).items() if value is not None}
+        vars_dict = {
+            key: value for key, value in vars(self).items() if value is not None
+        }
 
         # type is a reserved keyword, so here we change the name of btype to type
         if "btype" in vars_dict:
             vars_dict["type"] = vars_dict.pop("btype")
-        
+
         # iterate through dict and render blocks
         for key, value in vars_dict.items():
 
@@ -37,7 +39,9 @@ class RenderMixin:
             # render all values in dict using dict comprehension if the value is a Block
             elif isinstance(value, dict):
                 rendered_items = {
-                    key: pair.render() for key, pair in value.items() if isinstance(pair, Block)
+                    key: pair.render()
+                    for key, pair in value.items()
+                    if isinstance(pair, Block)
                 }
                 if rendered_items:
                     value.update(rendered_items)
@@ -47,7 +51,6 @@ class RenderMixin:
 
 
 class Block(RenderMixin):
-
     def __init__(self, btype: str, block_id: str = None):
         self.btype = btype
         # generate a block ID if none is passed
@@ -60,7 +63,7 @@ class Block(RenderMixin):
     @staticmethod
     def generate_block_id():
         return str(uuid.uuid4())
-    
+
     @staticmethod
     def validate_input(
         input_name: str, input_value, max_length: int = 0, equality_fields: list = None

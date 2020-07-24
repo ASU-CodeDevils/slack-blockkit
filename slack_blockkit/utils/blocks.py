@@ -2,7 +2,7 @@ from typing import List
 
 from slack_blockkit.block import Block
 from slack_blockkit.block_element import BlockElement, ImageElement
-from slack_blockkit.composition_object import TextObject
+from slack_blockkit.composition_object import MarkdownTextObject, TextObject
 from slack_blockkit.layout_block import SectionBlock
 from slack_blockkit.utils.utils import get_blocks
 
@@ -17,27 +17,27 @@ def get_checkmark(task_completed: bool) -> str:
     :return: A checkmark emoji string based on whether or not the task was completed.
     :rtype: str
     """
-    if task_completed:
-        return ":white_check_mark:"
-    return ":white_large_square:"
+    return ":white_check_mark:" if task_completed else ":white_large_square:"
 
 
-def get_information_block(info_link: str, info_text: str) -> dict:
+def get_information_block(link: str, text: str) -> dict:
     """
     Returns an information block, which is a section with an info icon followed by linked text.
 
-    :param info_link: The link the block redirects the user to.
-    :type info_link: str
-    :param info_text: The link text.
-    :type info_text: str
+    :param link: The link the block redirects the user to.
+    :type link: str
+    :param text: The link text.
+    :type text: str
     :return: A dict in the format of a context block.
     :rtype: dict
     """
-    information = f":information_source: *<{info_link}|{info_text}>*"
-    return TextObject(btype=TextObject.BTYPE_MARKDOWN, text=information).render()
+    information = ":information_source: *<{link}|{text}>*".format(link=link, text=text)
+    return MarkdownTextObject(text=information).render()
 
 
-def get_text_block_with_accessory(text_object: TextObject, accessory: BlockElement) -> dict:
+def get_text_block_with_accessory(
+    text_object: TextObject, accessory: BlockElement
+) -> dict:
     """
     Returns a text block with an accessory.
 
@@ -64,7 +64,7 @@ def get_text_block_with_image(text: str, image_url: str, alt_text: str) -> dict:
     :return: The block as a dict.
     :rtype: dict
     """
-    text_object = TextObject(btype=TextObject.BTYPE_MARKDOWN, text=text)
+    text_object = MarkdownTextObject(text=text)
     image_element = ImageElement(image_url=image_url, alt_text=alt_text)
     return get_text_block_with_accessory(
         text_object=text_object, accessory=image_element
@@ -85,6 +85,6 @@ def get_task_block(text: str, info_link: str, info_text: str) -> list:
     :rtype: list
     """
     return [
-        TextObject(btype=TextObject.BTYPE_MARKDOWN, text=text).render(),
+        MarkdownTextObject(text=text).render(),
         get_information_block(info_link=info_link, info_text=info_text),
     ]

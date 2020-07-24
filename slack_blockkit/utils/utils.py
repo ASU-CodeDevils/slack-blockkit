@@ -5,8 +5,15 @@ from slack_blockkit.block import Block
 Blocks = List[dict]
 
 
-def get_validated_input(value, ptype: Type, min_length: int = None, max_length: int = None, required: bool = False,
-        equality_fields: list = None, btype_fields: list = None):
+def get_validated_input(
+    value,
+    ptype: Type,
+    min_length: int = None,
+    max_length: int = None,
+    required: bool = False,
+    equality_fields: list = None,
+    btype_fields: list = None,
+):
     """
     Validates an input using a max length and equality field constraint. If either are not met, then
     this method raises an attribute error.
@@ -31,7 +38,7 @@ def get_validated_input(value, ptype: Type, min_length: int = None, max_length: 
     """
     if not value and required:
         raise AttributeError("value {} is required".format(value))
-    
+
     if value:
         # parameter type
         if not isinstance(value, ptype):
@@ -41,13 +48,21 @@ def get_validated_input(value, ptype: Type, min_length: int = None, max_length: 
         if min_length or max_length:
             length = value if not isinstance(value, str) else len(value)
             if min_length and length < min_length:
-                raise AttributeError("value {} is less than min length {}".format(value, min_length))
+                raise AttributeError(
+                    "value {} is less than min length {}".format(value, min_length)
+                )
             if max_length and length > max_length:
-                raise AttributeError("value {} exceeds max length {}".format(value, max_length))
-        
+                raise AttributeError(
+                    "value {} exceeds max length {}".format(value, max_length)
+                )
+
         # equality fields
         if equality_fields and value not in equality_fields:
-            raise AttributeError("value {} must match one of the fields: {}".format(value, ",".join(equality_fields)))
+            raise AttributeError(
+                "value {} must match one of the fields: {}".format(
+                    value, ",".join(equality_fields)
+                )
+            )
 
         return value
 

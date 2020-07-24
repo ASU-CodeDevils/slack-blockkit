@@ -9,7 +9,7 @@ from slack_blockkit.layout_block import (
     FileBlock,
     ImageBlock,
     InputBlock,
-    SectionBlock
+    SectionBlock,
 )
 
 
@@ -18,7 +18,7 @@ def test_actions_block(actions_block: ActionsBlock):
     assert rendered == {
         "type": actions_block.btype,
         "block_id": actions_block.block_id,
-        "elements": [item.render() for item in actions_block.elements]
+        "elements": [item.render() for item in actions_block.elements],
     }
 
 
@@ -26,14 +26,14 @@ def test_context_block(context_block: ContextBlock):
     assert context_block.render() == {
         "type": context_block.btype,
         "block_id": context_block.block_id,
-        "elements": [item.render() for item in context_block.elements]
+        "elements": [item.render() for item in context_block.elements],
     }
 
 
 def test_divider_block(divider_block: DividerBlock):
     assert divider_block.render() == {
         "type": divider_block.btype,
-        "block_id": divider_block.block_id
+        "block_id": divider_block.block_id,
     }
 
 
@@ -42,7 +42,7 @@ def test_file_block(file_block: FileBlock):
         "type": file_block.btype,
         "block_id": file_block.block_id,
         "external_id": file_block.external_id,
-        "source": file_block.source
+        "source": file_block.source,
     }
 
 
@@ -52,7 +52,7 @@ def test_image_block(image_block: ImageBlock):
         "block_id": image_block.block_id,
         "image_url": image_block.image_url,
         "alt_text": image_block.alt_text,
-        "title": image_block.title.render()
+        "title": image_block.title.render(),
     }
 
 
@@ -63,7 +63,7 @@ def test_input_block(input_block: InputBlock):
         "label": input_block.label.render(),
         "element": input_block.element.render(),
         "hint": input_block.hint.render(),
-        "optional": input_block.optional
+        "optional": input_block.optional,
     }
 
 
@@ -73,5 +73,5 @@ def test_section_block(section_block: SectionBlock):
         "block_id": section_block.block_id,
         "text": section_block.text.render(),
         "fields": [item.render() for item in section_block.fields],
-        "accessory": section_block.accessory.render()
+        "accessory": section_block.accessory.render(),
     }
