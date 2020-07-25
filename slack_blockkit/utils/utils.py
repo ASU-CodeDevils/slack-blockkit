@@ -1,3 +1,6 @@
+import json
+import webbrowser
+
 from typing import List, Type
 
 from slack_blockkit.block import Block
@@ -18,23 +21,19 @@ def get_validated_input(
     Validates an input using a max length and equality field constraint. If either are not met, then
     this method raises an attribute error.
 
-        :param value: The value of the input.
-        :param ptype: The type the ``value`` is expected to be.
-        :param min_length: The min length the input value can be, defaults to None. If None, min length is not
+    Args:
+        value: The value of the input.
+        ptype (Type): The value's type.
+        min_length (int): The min length the input value can be, defaults to None. If None, min length is not
             validated.
-        :type min_length: int
-        :param max_length: The max length the input value can be, defaults to None. If None, max length is not
+        max_length (int): The max length the input value can be, defaults to None. If None, max length is not
             validated.
-        :type max_length: int
-        :param required: Whether this param is required.
-        :type required: bool.
-        :param equality_fields: A list of fields that the input value must be equal to, defaults to None. If not
+        required (bool): Whether this param is required.
+        equality_fields (list): A list of fields that the input value must be equal to, defaults to None. If not
             specified, the validation is not made.
-        :type equality_fields: list
-        :param btype_fields: A list of btype fields that the object must match if it is a Block.
-        :type btype_fields: list
-        :return: The value.
-        :except AttributeError: Raised if the criteria is not met.
+        btype_fields (list): A list of btype fields that the object must match if it is a Block.
+    Raises:
+        AttributeError: Raised if any of the above criteria are not met.
     """
     if not value and required:
         raise AttributeError("value {} is required".format(value))
@@ -72,10 +71,13 @@ def get_blocks(*blocks) -> Blocks:
     Takes arguments of `Block` objects and generates a list of blocks ready to be inserted into
     a message payload.
 
-    :param args: An argument list of Block objects. Objects will be inserted top to bottom as they
-        appear in this list.
-    :return: A list of the dict representations of block objects.
-    :rtype: Blocks
+    Args:
+        blocks: An argument list of Block objects. Objects will be inserted top to bottom as they
+            appear in this list.
+    Return:
+        A list of the dict representations of block objects.
+    Raises:
+        AttributeError: If one of more of the blocks is an invalid block format.
     """
     block_list = []
     attribute_error_index = 0
@@ -94,3 +96,33 @@ def get_blocks(*blocks) -> Blocks:
         attribute_error_index += 1
 
     return block_list
+
+
+def test_blocks_online(*blocks):
+    """
+    Utility that take a set of blocks and opens up the online slack blockkit builder. This will print out a message
+    with a URL. Copy the URL into a browser and it will open the Slack Block Builder with the blocks you entered
+    as parameters.
+
+    Example:
+        >>> from slack_blockkit.layout_block import SectionBlock
+        >>> from slack_blockkit.composition_object import PlainTextObject
+        >>> from slack_blockkit.utils import test_blocks_online
+        >>> ...
+        >>> section1 = SectionBlock(text=PlainTextObject(text="Section 1"))
+        >>> section2 = SectionBlock(text=PlainTextObject(text="Section 2"))
+        >>> test_blocks_online(section1, section2)
+    Args:
+        blocks: A list of block or dict objects.
+    Raises:
+        AttributeError: If one of more of the blocks is an invalid block format.
+    """
+    base_url = "https://app.slack.com/block-kit-builder/#{}"
+
+    block_list = get_blocks(*blocks)
+    block_arg = {"blocks": block_list}
+    formatted_query = json.dumps(block_arg)
+
+    url = base_url.format(formatted_query)
+
+    print("Copy and paste the following url into your browser:\n\n\t{}\n\n".format(url))

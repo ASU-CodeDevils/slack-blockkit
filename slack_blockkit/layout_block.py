@@ -13,7 +13,6 @@ class LayoutBlock(Block):
     """
 
     def __init__(self, btype: str, block_id: str = None):
-        self.btype = btype
         # generate a block ID if none is passed
         if block_id and len(block_id) > 255:
             raise AttributeError(
