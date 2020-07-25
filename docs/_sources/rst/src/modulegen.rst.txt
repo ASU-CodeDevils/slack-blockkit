@@ -30,6 +30,6 @@ layout_block
 view_playload
 -------------
 
-.. automodule:: slack_blockkit.view_playload
+.. automodule:: slack_blockkit.view_payload
     :members:
 

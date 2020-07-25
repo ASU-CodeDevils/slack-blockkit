@@ -25,6 +25,7 @@ Pythonic-style blocks to allow for dynamic generation of block kits where copy-a
    :caption: Contents:
 
    rst/index
+   rst/todo
    rst/modules/index
 
 Indices and tables
