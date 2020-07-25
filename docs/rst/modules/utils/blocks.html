@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>utils.blocks &mdash; Slack Blockkit  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="utils.utils" href="utils.html" />
+    <link rel="prev" title="Utils" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Slack Blockkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todo.html">To Do</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Module Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../block.html">block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../block_element.html">block_element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composition_object.html">composition_object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../layout_block.html">layout_block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../view_payload.html">view_payload</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Utils</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">utils.blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html">utils.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Slack Blockkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module Documentation</a> &raquo;</li>
+        
+          <li><a href="index.html">Utils</a> &raquo;</li>
+        
+      <li>utils.blocks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/rst/modules/utils/blocks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="utils-blocks">
+<h1>utils.blocks<a class="headerlink" href="#utils-blocks" title="Permalink to this headline">¶</a></h1>
+<p>Block generation utility module for pre-defined block payloads</p>
+<span class="target" id="module-slack_blockkit.utils.blocks"></span><dl class="py function">
+<dt id="slack_blockkit.utils.blocks.get_checkmark">
+<code class="sig-prename descclassname">slack_blockkit.utils.blocks.</code><code class="sig-name descname">get_checkmark</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">task_completed</span><span class="p">:</span> <span class="n">bool</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#slack_blockkit.utils.blocks.get_checkmark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a check mark emoji indicating the completed task status. If the task is complete, then a white check
+mark is returned. If not, an empty white square is.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>task_completed</strong> (<em>bool</em>) – Whether or not the task was complete.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A checkmark emoji string based on whether or not the task was completed.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="slack_blockkit.utils.blocks.get_information_block">
+<code class="sig-prename descclassname">slack_blockkit.utils.blocks.</code><code class="sig-name descname">get_information_block</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">link</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#slack_blockkit.utils.blocks.get_information_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an information block, which is a section with an info icon followed by linked text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>link</strong> (<em>str</em>) – The link the block redirects the user to.</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – The link text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dict in the format of a context block.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="slack_blockkit.utils.blocks.get_task_block">
+<code class="sig-prename descclassname">slack_blockkit.utils.blocks.</code><code class="sig-name descname">get_task_block</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">info_link</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">info_text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; list<a class="headerlink" href="#slack_blockkit.utils.blocks.get_task_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a task block, which is comprised of a paragraph of text followed by an information link at the bottom.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>str</em>) – Markdown-supported text to display in the paragraph.</p></li>
+<li><p><strong>info_link</strong> (<em>str</em>) – The link associated with the task block.</p></li>
+<li><p><strong>info_text</strong> (<em>str</em>) – The link text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of blocks formatted for a block payload.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="slack_blockkit.utils.blocks.get_text_block_with_accessory">
+<code class="sig-prename descclassname">slack_blockkit.utils.blocks.</code><code class="sig-name descname">get_text_block_with_accessory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text_object</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../src/modulegen.html#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a></span></em>, <em class="sig-param"><span class="n">accessory</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../src/modulegen.html#slack_blockkit.block_element.BlockElement" title="slack_blockkit.block_element.BlockElement">slack_blockkit.block_element.BlockElement</a></span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#slack_blockkit.utils.blocks.get_text_block_with_accessory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a text block with an accessory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text_object</strong> (<a class="reference internal" href="../../src/modulegen.html#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a>) – The text block object.</p></li>
+<li><p><strong>accessory</strong> (<a class="reference internal" href="../../src/modulegen.html#slack_blockkit.layout_block.LayoutBlock" title="slack_blockkit.layout_block.LayoutBlock"><em>LayoutBlock</em></a>) – The accessory object.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The text block with an accessory layout block.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="slack_blockkit.utils.blocks.get_text_block_with_image">
+<code class="sig-prename descclassname">slack_blockkit.utils.blocks.</code><code class="sig-name descname">get_text_block_with_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">image_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">alt_text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#slack_blockkit.utils.blocks.get_text_block_with_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a text block with an image to the right of it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>str</em>) – The text in the text block.</p></li>
+<li><p><strong>image_url</strong> (<em>str</em>) – The URL to the image.</p></li>
+<li><p><strong>alt_text</strong> (<em>str</em>) – Alternate text (appears on image hover).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The block as a dict.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="utils.html" class="btn btn-neutral float-right" title="utils.utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020 CodeDevils - All rights reserved
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

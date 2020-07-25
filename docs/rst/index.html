@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Get Started &mdash; Slack Blockkit  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="To Do" href="todo.html" />
+    <link rel="prev" title="Slack Blockkit Builder" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Slack Blockkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Get Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#categories">Categories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-usage">Example Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#message-blocks">Message Blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#online-message-blocks">Online Message Blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils">Utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/index.html">Module Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Slack Blockkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Get Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="get-started">
+<h1>Get Started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Installation is as easy as:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install slack_blockkit
+</pre></div>
+</div>
+<p>It is currently tested on Python3+, but can be used for Python 2.7.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="categories">
+<h3>Categories<a class="headerlink" href="#categories" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://api.slack.com/block-kit">Slack’s Block Kit</a> comes with 4 different block categories:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://api.slack.com/reference/block-kit/block-elements">Block elements</a> - The standard element of a block.</p></li>
+<li><p><a class="reference external" href="https://api.slack.com/reference/block-kit/composition-objects">Composition objects</a> - Composition objects can be used inside of block elements and certain message payload fields. They are simply common JSON object patterns that you’ll encounter frequently when building blocks or composing messages.</p></li>
+<li><p><a class="reference external" href="https://api.slack.com/reference/block-kit/interactive-components">Interactive components</a> - Interactive components are a subset of Block Kit elements that add interactivity to various app surfaces.</p></li>
+<li><p><a class="reference external" href="https://api.slack.com/reference/block-kit/views">View payloads</a> - Views are app-customized visual areas within modals and Home tabs.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some interactive components are not implemented in version 0.0.4</p>
+</div>
+</div>
+<div class="section" id="example-usage">
+<h3>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h3>
+<p>You can access the different components by importing them from their respective package. For example, <a class="reference external" href="https://api.slack.com/reference/block-kit/block-elements">Block elements</a>
+can be accessed by importing <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">slack_blockkit.block_element</span> <span class="pre">import</span> <span class="pre">...</span></code>. A common block element is the <code class="docutils literal notranslate"><span class="pre">TextObject</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">slack_blockkit.block_element</span> <span class="kn">import</span> <span class="n">TextObject</span>
+
+<span class="n">text_object</span> <span class="o">=</span> <span class="n">TextObject</span><span class="p">(</span><span class="n">btype</span><span class="o">=</span><span class="s2">&quot;mrkdwn&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;This is a text block&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Blocks are inserted into a list as dicts. Each component comes with a <cite>render()</cite> method which will return a <code class="docutils literal notranslate"><span class="pre">dict</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text_object</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>  <span class="c1"># {&quot;type&quot;: &quot;mrkdwn&quot;, &quot;text&quot;: &quot;This is a text block&quot;}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>btype</strong> in synonymous with Slack’s <strong>type</strong>. <strong>type</strong> is reserved in Python.</p>
+</div>
+</div>
+<div class="section" id="message-blocks">
+<h3>Message Blocks<a class="headerlink" href="#message-blocks" title="Permalink to this headline">¶</a></h3>
+<p>Message payloads to Slack take a <code class="docutils literal notranslate"><span class="pre">list</span></code> of dictionaries. The <code class="docutils literal notranslate"><span class="pre">slack_blockkit.utils</span></code> module has a <code class="docutils literal notranslate"><span class="pre">get_blocks</span></code>
+method that takes Block objects and returns the formatted list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">slack_blockkit.utils</span> <span class="kn">import</span> <span class="n">get_blocks</span>
+<span class="kn">from</span> <span class="nn">slack_blockkit.text_object</span> <span class="kn">import</span> <span class="n">TextObject</span>
+<span class="kn">from</span> <span class="nn">slack_blockkit.layout_block</span> <span class="kn">import</span> <span class="n">DividerBlock</span><span class="p">,</span> <span class="n">ImageBlock</span>
+
+<span class="n">blocks</span> <span class="o">=</span> <span class="n">get_blocks</span><span class="p">(</span>
+    <span class="n">TextObject</span><span class="p">(</span><span class="n">btype</span><span class="o">=</span><span class="s2">&quot;mrkdwn&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Welcome to CodeDevils!&quot;</span><span class="p">),</span>
+    <span class="n">DividerBlock</span><span class="p">(),</span>
+    <span class="n">ImageBlock</span><span class="p">(</span><span class="n">image_url</span><span class="o">=</span><span class="s2">&quot;https://codedevils.org/static/img/logo&quot;</span><span class="p">,</span> <span class="n">alt_text</span><span class="o">=</span><span class="s2">&quot;Logo&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Which makes <code class="docutils literal notranslate"><span class="pre">blocks</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mrkdwn&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Welcome to CodeDevils!&quot;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;divider&quot;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://codedevils.org/static/img/logo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;alt_text&quot;</span><span class="p">:</span> <span class="s2">&quot;Logo&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="online-message-blocks">
+<h3>Online Message Blocks<a class="headerlink" href="#online-message-blocks" title="Permalink to this headline">¶</a></h3>
+<p>Alternatively you can use the <code class="docutils literal notranslate"><span class="pre">test_blocks_online</span></code> if you want to test your blocks before
+publishing them. The utility takes the blocks you input as arguments and creates a link that
+takes you to <a class="reference external" href="https://app.slack.com/block-kit-builder/">Slack’s block kit builder</a>. An example is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">slack_blockkit.layout_block</span> <span class="kn">import</span> <span class="n">SectionBlock</span>
+<span class="kn">from</span> <span class="nn">slack_blockkit.composition_object</span> <span class="kn">import</span> <span class="n">PlainTextObject</span>
+<span class="kn">from</span> <span class="nn">slack_blockkit.utils</span> <span class="kn">import</span> <span class="n">test_blocks_online</span>
+
+<span class="n">section1</span> <span class="o">=</span> <span class="n">SectionBlock</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">PlainTextObject</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Section 1&quot;</span><span class="p">))</span>
+<span class="n">section2</span> <span class="o">=</span> <span class="n">SectionBlock</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">PlainTextObject</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Section 2&quot;</span><span class="p">))</span>
+<span class="n">test_blocks_online</span><span class="p">(</span><span class="n">section1</span><span class="p">,</span> <span class="n">section2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will print out to the console:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Copy and paste the following url into your browser:
+
+    https://app.slack.com/block-kit-builder/#<span class="o">{</span><span class="s2">&quot;blocks&quot;</span>: <span class="o">[{</span><span class="s2">&quot;block_id&quot;</span>: <span class="s2">&quot;96dc84a2-d517-4a75-ab83-193770df62cc&quot;</span>, <span class="s2">&quot;text&quot;</span>: <span class="o">{</span><span class="s2">&quot;text&quot;</span>: <span class="s2">&quot;Section 1&quot;</span>, <span class="s2">&quot;emoji&quot;</span>: false, <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;plain_text&quot;</span><span class="o">}</span>, <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;section&quot;</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;block_id&quot;</span>: <span class="s2">&quot;182c3fc6-3d7b-464e-8fb9-0fb832e8cd02&quot;</span>, <span class="s2">&quot;text&quot;</span>: <span class="o">{</span><span class="s2">&quot;text&quot;</span>: <span class="s2">&quot;Section 2&quot;</span>, <span class="s2">&quot;emoji&quot;</span>: false, <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;plain_text&quot;</span><span class="o">}</span>, <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;section&quot;</span><span class="o">}]}</span>
+</pre></div>
+</div>
+<p>Copy and pasting this into your browser will open up <a class="reference external" href="https://app.slack.com/block-kit-builder/">Slack’s block kit builder</a> with the blocks
+you created.</p>
+</div>
+<div class="section" id="utils">
+<h3>Utils<a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h3>
+<p>Common composite blocks are implemented for you in <code class="docutils literal notranslate"><span class="pre">slack_blockkit.utils</span></code> and include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_task_block</span></code> - Returns a task block, which is comprised of a paragraph of text followed by an information link at the bottom.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_text_block_with_image</span></code> - Returns a text block with an image to the right of it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_text_block_with_accessory</span></code> - Returns a text block with an accessory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_information_block</span></code> - Returns an information block, which is a section with an info icon followed by linked text.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_checkmark</span></code> - <em>Not</em> a block, but rather an emoji string for a checkmark. Pass <code class="docutils literal notranslate"><span class="pre">True</span></code> for a checked mark and <code class="docutils literal notranslate"><span class="pre">False</span></code> for unchecked.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="todo.html" class="btn btn-neutral float-right" title="To Do" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Slack Blockkit Builder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020 CodeDevils - All rights reserved
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

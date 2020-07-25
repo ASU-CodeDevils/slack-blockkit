@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; codedevils.org  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Custom URLs" href="custom_urls.html" />
+    <link rel="prev" title="Welcome to codedevils.org documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> codedevils.org
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instructions">Instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clone-from-github">Clone from GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-dependencies">Install Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-database">Configure the Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-environment-variables">Configure the Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finish-configuration">Finish configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vs-code-configuration">VS Code configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom_urls.html">Custom URLs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emails.html">Emails</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages.html">Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">codedevils.org</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>This installation details how to download and run the website locally. These
+instructions work for both Debian Stretch and Mac. Note that the CodeDevils
+website is installed on a Debian Stretch OS, so it is the preferred OS&gt;</p>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Python 3.7</p></li>
+<li><p>Django 3.0</p></li>
+<li><p>MySQL</p></li>
+<li><p>Redis (optional when installed locally)</p></li>
+<li><p>Celery (optional when installed locally)</p></li>
+</ul>
+</div>
+<div class="section" id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="clone-from-github">
+<h3>Clone from GitHub<a class="headerlink" href="#clone-from-github" title="Permalink to this headline">¶</a></h3>
+<p>Clone the repository from GitHub.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ASU-CodeDevils/codedevils_org.git
+<span class="nb">cd</span> codedevils_org
+git checkout dev     <span class="c1"># all branches need to be created from the dev branch</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-dependencies">
+<h3>Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h3>
+<p>First create the virtual environment. For this example, the virtual environment
+will be created in the root directory of the project.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv venv
+<span class="nb">source</span> venv/bin/activate
+pip install --upgrade pip
+</pre></div>
+</div>
+<p>You should source the virtual environment each time before running the project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Best practice is to install Django globally rather than through the virtual
+environment. Due to the server configuration, this project installs Django in
+the virtual environment.</p>
+</div>
+<p>Install the dependencies to the virtual environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -r requirements/local.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-the-database">
+<h3>Configure the Database<a class="headerlink" href="#configure-the-database" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These instructions do not detail how to install MySQL, but the requirements for
+configuring your MySQL server for the website. See instructions on how to <a class="reference external" href="https://tecadmin.net/install-mysql-server-on-debian9-stretch/">install on Debian Stretch</a>
+or <a class="reference external" href="https://dev.mysql.com/doc/mysql-osx-excerpt/5.7/en/osx-installation-pkg.html">install on Mac</a>.</p>
+</div>
+<p>In MySQL create a database called <cite>cdwebtest</cite> and a user on that database named <cite>test</cite>. You
+can do so using the command-line, but it may be easier if you use the MySQL workbench. In this
+example, log in using the command-line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysql -u root -p
+</pre></div>
+</div>
+<p>Then run the following to configure the database:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">cdwebtest</span><span class="p">;</span>
+<span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">PRIVILEGES</span> <span class="n">ON</span> <span class="n">cdwebtest</span><span class="o">.*</span> <span class="n">TO</span> <span class="s1">&#39;test&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="s1">&#39;test&#39;</span><span class="p">;</span>
+\<span class="n">q</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-the-environment-variables">
+<h3>Configure the Environment Variables<a class="headerlink" href="#configure-the-environment-variables" title="Permalink to this headline">¶</a></h3>
+<p>Within the root directory of the project of the project create a <cite>.env</cite> file and begin
+editing with your favorite editor:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch .env
+</pre></div>
+</div>
+<p>Inside the .env file put the following configuration:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">DATABASE_URL</span><span class="o">=</span><span class="s">mysql://test:test@127.0.0.1/cdwebtest</span>
+<span class="na">CELERY_BROKER_URL</span><span class="o">=</span>
+<span class="na">EMAIL_HOST_PASSWORD</span><span class="o">=</span><span class="s">None</span>
+<span class="na">DJANGO_LANGUAGE_CODE</span><span class="o">=</span><span class="s">en-us</span>
+<span class="na">DJANGO_ADMIN_URL</span><span class="o">=</span><span class="s">admin/</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Emails sent in the local environment will show over the command line instead of sending an
+actual email.</p>
+</div>
+</div>
+<div class="section" id="finish-configuration">
+<h3>Finish configuration<a class="headerlink" href="#finish-configuration" title="Permalink to this headline">¶</a></h3>
+<p>To complete the configuration, run the following <cite>django-admin</cite> commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./manage.py migrate             <span class="c1"># for creating the database tables</span>
+./manage.py compilemessages     <span class="c1"># for compiling translations</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="vs-code-configuration">
+<h2>VS Code configuration<a class="headerlink" href="#vs-code-configuration" title="Permalink to this headline">¶</a></h2>
+<p>A good VSCode integration for this project is:</p>
+<p><cite>settings.json</cite></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;python.linting.pylintEnabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;python.pythonPath&quot;</span><span class="p">:</span> <span class="s2">&quot;${workspaceFolder}/ven/bin/python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;files.associations&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;**/*.html&quot;</span><span class="p">:</span> <span class="s2">&quot;html&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;**/templates/**/*.html&quot;</span><span class="p">:</span> <span class="s2">&quot;django-html&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;**/templates/*.html&quot;</span><span class="p">:</span> <span class="s2">&quot;django-html&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;**/templates/**/*&quot;</span><span class="p">:</span> <span class="s2">&quot;django-txt&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;**/requirements{/**,*}.{txt,in}&quot;</span><span class="p">:</span> <span class="s2">&quot;pip-requirements&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><cite>launch.json</cite></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;configurations&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Python: Django&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;program&quot;</span><span class="p">:</span> <span class="s2">&quot;${workspaceFolder}/manage.py&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;args&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;runserver&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;--noreload&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;django&quot;</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;firefox&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;reAttach&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Launch localhost&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://localhost:8000&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;webRoot&quot;</span><span class="p">:</span> <span class="s2">&quot;${workspaceFolder}/public/&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="custom_urls.html" class="btn btn-neutral float-right" title="Custom URLs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to codedevils.org documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020 CodeDevils - All rights reserved
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

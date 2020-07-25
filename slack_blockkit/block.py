@@ -1,6 +1,3 @@
-import uuid
-
-
 class RenderMixin:
     """Provides a render method for blocks and similar payload structures."""
 
@@ -8,8 +5,8 @@ class RenderMixin:
         """
         Renders the block in a ``dict`` format appropriate for using within message payloads.
 
-        :return: The block as a dict.
-        :rtype: dict
+        Returns:
+            dict: The block as a dict.
         """
         # extract the values and their keys who are not None
         vars_dict = {
@@ -51,18 +48,15 @@ class RenderMixin:
 
 
 class Block(RenderMixin):
-    def __init__(self, btype: str, block_id: str = None):
-        self.btype = btype
-        # generate a block ID if none is passed
-        if block_id and len(block_id) > 255:
-            raise AttributeError(
-                f"block_id cannot be greater than 255 characters, but is {block_id}"
-            )
-        self.block_id = block_id if block_id else self.generate_block_id()
+    """
+    Base block class.
 
-    @staticmethod
-    def generate_block_id():
-        return str(uuid.uuid4())
+    Args:
+        btype (str): Synonymous with Slack's ``type`` parameter.
+    """
+
+    def __init__(self, btype: str):
+        self.btype = btype
 
     @staticmethod
     def validate_input(

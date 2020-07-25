@@ -20,6 +20,7 @@ Slack Blockkit Builder
 Slack Blockkit Builder is a simple utility for developing code blocks for `Slack's Block Kit`_. It provides
 Pythonic-style blocks to allow for dynamic generation of block kits where copy-and-paste just won't do it.
 
+Visit the `documentation`_ for more examples and method/class docs.
 
 Installation
 ------------
@@ -47,7 +48,7 @@ Categories
 
 .. warning::
 
-    Some interactive components are not implemented in version 0.0.3
+    Some interactive components are not implemented in version 0.0.4
 
 Example Usage
 *************
@@ -65,7 +66,7 @@ Blocks are inserted into a list as dicts. Each component comes with a `render()`
 
 .. code-block:: python
 
-    text_object.render()  # {"type": "mrkdwn", "block_id": "<uuid>", "text": "This is a text block"}
+    text_object.render()  # {"type": "mrkdwn", "text": "This is a text block"}
 
 .. note::
 
@@ -95,19 +96,44 @@ Which makes ``blocks``:
 
     {
         "type": "mrkdwn",
-        "block_id": "<uuid>",
         "text": "Welcome to CodeDevils!"
     },
     {
         "type": "divider"
-        "block_id": "<uuid>"
     },
     {
         "type": "image",
-        "block_id": "<uuid>",
         "image_url": "https://codedevils.org/static/img/logo",
         "alt_text": "Logo"
     }
+
+Online Message Blocks
+*********************
+
+Alternatively you can use the ``test_blocks_online`` if you want to test your blocks before
+publishing them. The utility takes the blocks you input as arguments and creates a link that
+takes you to `Slack's block kit builder`_. An example is:
+
+.. code-block:: python
+
+    from slack_blockkit.layout_block import SectionBlock
+    from slack_blockkit.composition_object import PlainTextObject
+    from slack_blockkit.utils import test_blocks_online
+
+    section1 = SectionBlock(text=PlainTextObject(text="Section 1"))
+    section2 = SectionBlock(text=PlainTextObject(text="Section 2"))
+    test_blocks_online(section1, section2)
+
+This will print out to the console:
+
+.. code-block:: bash
+
+    Copy and paste the following url into your browser:
+
+        https://app.slack.com/block-kit-builder/#{"blocks": [{"block_id": "96dc84a2-d517-4a75-ab83-193770df62cc", "text": {"text": "Section 1", "emoji": false, "type": "plain_text"}, "type": "section"}, {"block_id": "182c3fc6-3d7b-464e-8fb9-0fb832e8cd02", "text": {"text": "Section 2", "emoji": false, "type": "plain_text"}, "type": "section"}]}
+
+Copy and pasting this into your browser will open up `Slack's block kit builder`_ with the blocks
+you created. 
 
 Utils
 *****
@@ -120,8 +146,10 @@ Common composite blocks are implemented for you in ``slack_blockkit.utils`` and 
 * ``get_information_block`` - Returns an information block, which is a section with an info icon followed by linked text.
 * ``get_checkmark`` - *Not* a block, but rather an emoji string for a checkmark. Pass ``True`` for a checked mark and ``False`` for unchecked.
 
+.. _`documentation`: https://github.io/ASU-CodeDevils/slack-blockkit
 .. _`Block elements`: https://api.slack.com/reference/block-kit/block-elements
 .. _`Interactive components`: https://api.slack.com/reference/block-kit/interactive-components
 .. _`Composition objects`: https://api.slack.com/reference/block-kit/composition-objects
 .. _`View payloads`: https://api.slack.com/reference/block-kit/views
 .. _`Slack's Block Kit`: https://api.slack.com/block-kit
+.. _`Slack's block kit builder`: https://app.slack.com/block-kit-builder/

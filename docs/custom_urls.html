@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Custom URLs &mdash; codedevils.org  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Emails" href="emails.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> codedevils.org
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Custom URLs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#defining-custom-urls">Defining Custom URLs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#notifications">Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortcuts">Shortcuts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="emails.html">Emails</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages.html">Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">codedevils.org</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Custom URLs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/custom_urls.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="custom-urls">
+<h1>Custom URLs<a class="headerlink" href="#custom-urls" title="Permalink to this headline">¶</a></h1>
+<p>The CodeDevils Network (CDN) is vast and includes tons of different websites
+managing everything from team collaboration to software development. Custom
+URLs are a means to keep track of all these URLs and utilize them on the
+website.</p>
+<div class="section" id="defining-custom-urls">
+<h2>Defining Custom URLs<a class="headerlink" href="#defining-custom-urls" title="Permalink to this headline">¶</a></h2>
+<p>Navigate to the <a class="reference external" href="https://www.codedevils.org/en-us/admin/cd_url/customurl/">admin console</a>. Here you will be able to add custom urls.
+You will have the following options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> - A familiar name for the link.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code> - The link</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slug</span></code> - The identifying slug used for creating shortcuts, updating links, and obtaining them in the API.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">notify_in</span></code> - The number of hours, days, or months until an officer is notified that this link needs to be updated. The default is 12.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">notify_interval</span></code> - The notification interval in hours, days, or months. This will be coupled with the <code class="docutils literal notranslate"><span class="pre">notify_in</span></code> to send a notification to officers to update. The default is MONTHS.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">acknowledge</span></code> - Whether or not this link has been acknowledged since the last notification.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last_updated</span></code> - The date this link was last updated.</p></li>
+</ul>
+<div class="section" id="notifications">
+<h3>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h3>
+<p>Notifications are defined by <code class="docutils literal notranslate"><span class="pre">notify_in</span> <span class="pre">notify_interval</span></code>. For example, if <code class="docutils literal notranslate"><span class="pre">notify_in</span></code> is 12 and <code class="docutils literal notranslate"><span class="pre">notify_interval</span></code>
+is MONTHS, then the next notification is in 12 months.</p>
+</div>
+<div class="section" id="shortcuts">
+<h3>Shortcuts<a class="headerlink" href="#shortcuts" title="Permalink to this headline">¶</a></h3>
+<p>Custom shortcuts are automatically generated when a <code class="docutils literal notranslate"><span class="pre">CustomUrl</span></code> is created. Simply visit:</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://codedevils.org/&lt;slug&gt;/</span></code></p>
+<p>Where the <code class="docutils literal notranslate"><span class="pre">slug</span></code> is the slug of the <code class="docutils literal notranslate"><span class="pre">CustomUrl</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="emails.html" class="btn btn-neutral float-right" title="Emails" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020 CodeDevils - All rights reserved
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
