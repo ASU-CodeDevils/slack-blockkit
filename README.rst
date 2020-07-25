@@ -20,6 +20,7 @@ Slack Blockkit Builder
 Slack Blockkit Builder is a simple utility for developing code blocks for `Slack's Block Kit`_. It provides
 Pythonic-style blocks to allow for dynamic generation of block kits where copy-and-paste just won't do it.
 
+Visit the `documentation`_ for more examples and method/class docs.
 
 Installation
 ------------
@@ -65,7 +66,7 @@ Blocks are inserted into a list as dicts. Each component comes with a `render()`
 
 .. code-block:: python
 
-    text_object.render()  # {"type": "mrkdwn", "block_id": "<uuid>", "text": "This is a text block"}
+    text_object.render()  # {"type": "mrkdwn", "text": "This is a text block"}
 
 .. note::
 
@@ -95,16 +96,13 @@ Which makes ``blocks``:
 
     {
         "type": "mrkdwn",
-        "block_id": "<uuid>",
         "text": "Welcome to CodeDevils!"
     },
     {
         "type": "divider"
-        "block_id": "<uuid>"
     },
     {
         "type": "image",
-        "block_id": "<uuid>",
         "image_url": "https://codedevils.org/static/img/logo",
         "alt_text": "Logo"
     }
@@ -120,6 +118,7 @@ Common composite blocks are implemented for you in ``slack_blockkit.utils`` and 
 * ``get_information_block`` - Returns an information block, which is a section with an info icon followed by linked text.
 * ``get_checkmark`` - *Not* a block, but rather an emoji string for a checkmark. Pass ``True`` for a checked mark and ``False`` for unchecked.
 
+.. _`documentation`: https://github.io/ASU-CodeDevils/slack-blockkit
 .. _`Block elements`: https://api.slack.com/reference/block-kit/block-elements
 .. _`Interactive components`: https://api.slack.com/reference/block-kit/interactive-components
 .. _`Composition objects`: https://api.slack.com/reference/block-kit/composition-objects
