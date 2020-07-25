@@ -82,13 +82,11 @@ def test_get_task_block():
         {
             "type": task_block[0]["type"],
             "text": task_block[0]["text"],
-            "emoji": task_block[0]["emoji"],
             "verbatim": task_block[0]["verbatim"]
         },
         {
             "type": task_block[1]["type"],
             "text": task_block[1]["text"],
-            "emoji": task_block[1]["emoji"],
             "verbatim": task_block[1]["verbatim"]
         }
     ]

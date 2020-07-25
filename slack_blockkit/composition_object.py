@@ -147,10 +147,9 @@ class ConfirmObject(Block):
         )
         self.deny = deny
 
-        if self.style:
-            self.style = get_validated_input(
-                style, str, equality_fields=["danger", "primary"]
-            )
+        self.style = get_validated_input(
+            style, str, equality_fields=["danger", "primary"]
+        )
 
 
 class OptionObject(Block):
