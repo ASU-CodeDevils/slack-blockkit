@@ -34,9 +34,9 @@ class ButtonElement(BlockElement):
     https://api.slack.com/reference/block-kit/block-elements#button
 
     Args:
-        text (TextObject): A text object that defines the button's text. Can only be of type: plain_text. 
+        text (TextObject): A text object that defines the button's text. Can only be of type: plain_text.
             Maximum length for the text in this field is 75 characters.
-        action_id (str):  	An identifier for this action. You can use this when you receive an interaction 
+        action_id (str):  	An identifier for this action. You can use this when you receive an interaction
             payload to identify the source of the action. Should be unique among all other action_ids used
             elsewhere by your app. Maximum length for this field is 255 characters.
         url (str): A URL to load in the user's browser when the button is clicked. Maximum length for this
@@ -45,13 +45,13 @@ class ButtonElement(BlockElement):
         value (str): The value to send along with the interaction payload. Maximum length for this field is
             2000 characters.
         style (str): Decorates buttons with alternative visual color schemes. Use this option with restraint.
-            
+
             ``primary`` gives buttons a green outline and text, ideal for affirmation or confirmation actions.
             ``primary`` should only be used for one button within a set.
-            
+
             ``danger`` gives buttons a red outline and text, and should be used when the action is destructive.
             Use ``danger`` even more sparingly than primary.
-            
+
             If you don't include this field, the ``default`` button style will be used.
 
     """
@@ -95,9 +95,9 @@ class PrimaryButtonElement(ButtonElement):
     A :class:`ButtonElement` whose ``style`` is ``primary``.
 
     Args:
-        text (TextObject): A text object that defines the button's text. Can only be of type: plain_text. 
+        text (TextObject): A text object that defines the button's text. Can only be of type: plain_text.
             Maximum length for the text in this field is 75 characters.
-        action_id (str):  	An identifier for this action. You can use this when you receive an interaction 
+        action_id (str):  	An identifier for this action. You can use this when you receive an interaction
             payload to identify the source of the action. Should be unique among all other action_ids used
             elsewhere by your app. Maximum length for this field is 255 characters.
         url (str): A URL to load in the user's browser when the button is clicked. Maximum length for this
@@ -130,9 +130,9 @@ class DangerButtonElement(ButtonElement):
     A :class:`ButtonElement` whose ``style`` is ``danger``.
 
     Args:
-        text (TextObject): A text object that defines the button's text. Can only be of type: plain_text. 
+        text (TextObject): A text object that defines the button's text. Can only be of type: plain_text.
             Maximum length for the text in this field is 75 characters.
-        action_id (str):  	An identifier for this action. You can use this when you receive an interaction 
+        action_id (str):  	An identifier for this action. You can use this when you receive an interaction
             payload to identify the source of the action. Should be unique among all other action_ids used
             elsewhere by your app. Maximum length for this field is 255 characters.
         url (str): A URL to load in the user's browser when the button is clicked. Maximum length for this
@@ -165,9 +165,9 @@ class DefaultButtonElement(ButtonElement):
     A :class:`ButtonElement` whose ``style`` is ``default``.
 
     Args:
-        text (TextObject): A text object that defines the button's text. Can only be of type: plain_text. 
+        text (TextObject): A text object that defines the button's text. Can only be of type: plain_text.
             Maximum length for the text in this field is 75 characters.
-        action_id (str):  	An identifier for this action. You can use this when you receive an interaction 
+        action_id (str):  	An identifier for this action. You can use this when you receive an interaction
             payload to identify the source of the action. Should be unique among all other action_ids used
             elsewhere by your app. Maximum length for this field is 255 characters.
         url (str): A URL to load in the user's browser when the button is clicked. Maximum length for this
@@ -204,12 +204,12 @@ class DatepickerElement(BlockElement):
         action_id (str): An identifier for the action triggered when a menu option is selected. You can use
             this when you receive an interaction payload to identify the source of the action. Should be unique
             among all other action_ids used elsewhere by your app. Maximum length for this field is 255 characters.
-        placeholder (TextObject): A ``plain_text`` only text object that defines the placeholder text shown on the datepicker.
-            Maximum length for the text in this field is 150 characters.
+        placeholder (TextObject): A ``plain_text`` only text object that defines the placeholder text shown on the
+            datepicker. Maximum length for the text in this field is 150 characters.
         initial_date (str): The initial date that is selected when the element is loaded. This should be in the format
             ``YYYY-MM-DD``.
-        confirm (ConfirmObject): A :class:`ConfirmObject` that defines an optional confirmation dialog that appears after a date
-            is selected.
+        confirm (ConfirmObject): A :class:`ConfirmObject` that defines an optional confirmation dialog that appears
+            after a date is selected.
     """
 
     def __init__(
@@ -351,8 +351,8 @@ class RadioButtonGroupElement(BlockElement):
         options (List[OptionObject]): An array of :class:`OptionObject`.
         initial_option (OptionObject): An :class:`OptionObject` that exactly matches one of the options within options.
             This option will be selected when the radio button group initially loads.
-        confirm (ConfirmObject): A :class:`ConfirmObject` that defines an optional confirmation dialog that appears after
-            clicking one of the radio buttons in this element.
+        confirm (ConfirmObject): A :class:`ConfirmObject` that defines an optional confirmation dialog that appears
+            after clicking one of the radio buttons in this element.
     """
 
     def __init__(

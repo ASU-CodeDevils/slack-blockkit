@@ -35,7 +35,7 @@ class LayoutBlock(Block):
         Generates a UUID (v4) to be used as a block ID.
 
         Returns:
-            str: A random UUID (v4) as a string. 
+            str: A random UUID (v4) as a string.
         """
         return str(uuid.uuid4())
 
@@ -217,7 +217,7 @@ class SectionBlock(LayoutBlock):
             will be generated. Maximum length for this field is 255 characters.
         fields (List[TextObject]): An array of :class:`TextObject`. Any text objects included with fields will be
             rendered in a compact format that allows for 2 columns of side-by-side text. Maximum number of items is 10.
-            Maximum length for the text in each item is 2000 characters. 
+            Maximum length for the text in each item is 2000 characters.
         accessory (BlockElement): One of the available :class:`ElementObject`.
     """
 
