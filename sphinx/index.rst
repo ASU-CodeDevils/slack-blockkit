@@ -20,6 +20,8 @@ Slack Blockkit Builder
 Slack Blockkit Builder is a simple utility for developing code blocks for `Slack's Block Kit`_. It provides
 Pythonic-style blocks to allow for dynamic generation of block kits where copy-and-paste just won't do it.
 
+Visit the `documentation`_ for more examples and method/class docs.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -35,4 +37,5 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+.. _`documentation`: https://asu-codedevils.github.io/slack-blockkit/
 .. _`Slack's Block Kit`: https://api.slack.com/block-kit
