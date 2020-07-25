@@ -16,21 +16,26 @@ class LayoutBlock(Block):
         block_id (str): A string acting as a unique identifier for a block. You can use this ``block_id`` when you
             receive an interaction payload to identify the source of the action. If not specified, a ``block_id``
             will be generated. Maximum length for this field is 255 characters.
+
+            If not ``block_id`` is specified, a ``block_id`` is set to a random UUID v4.
     """
 
     def __init__(self, btype: str, block_id: str = None):
         # generate a block ID if none is passed
         if block_id and len(block_id) > 255:
             raise AttributeError(
-                f"block_id cannot be greater than 255 characters, but is {block_id}"
+                "block_id cannot be greater than 255 characters, but is {}".format(block_id)
             )
         self.block_id = block_id if block_id else self.generate_block_id()
         super().__init__(btype=btype)
 
     @staticmethod
-    def generate_block_id():
+    def generate_block_id() -> str:
         """
         Generates a UUID (v4) to be used as a block ID.
+
+        Returns:
+            str: A random UUID (v4) as a string. 
         """
         return str(uuid.uuid4())
 
