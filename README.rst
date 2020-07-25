@@ -48,7 +48,7 @@ Categories
 
 .. warning::
 
-    Some interactive components are not implemented in version 0.0.3
+    Some interactive components are not implemented in version 0.0.4
 
 Example Usage
 *************
