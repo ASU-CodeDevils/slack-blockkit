@@ -1,6 +1,3 @@
-import uuid
-
-
 class RenderMixin:
     """Provides a render method for blocks and similar payload structures."""
 
@@ -51,18 +48,8 @@ class RenderMixin:
 
 
 class Block(RenderMixin):
-    def __init__(self, btype: str, block_id: str = None):
+    def __init__(self, btype: str):
         self.btype = btype
-        # generate a block ID if none is passed
-        if block_id and len(block_id) > 255:
-            raise AttributeError(
-                f"block_id cannot be greater than 255 characters, but is {block_id}"
-            )
-        self.block_id = block_id if block_id else self.generate_block_id()
-
-    @staticmethod
-    def generate_block_id():
-        return str(uuid.uuid4())
 
     @staticmethod
     def validate_input(

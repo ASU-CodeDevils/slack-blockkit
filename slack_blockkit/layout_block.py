@@ -1,3 +1,5 @@
+import uuid
+
 from typing import List
 
 from .block import Block
@@ -12,8 +14,17 @@ class LayoutBlock(Block):
 
     def __init__(self, btype: str, block_id: str = None):
         self.btype = btype
-        self.block_id = block_id
-        super().__init__(btype=btype, block_id=block_id)
+        # generate a block ID if none is passed
+        if block_id and len(block_id) > 255:
+            raise AttributeError(
+                f"block_id cannot be greater than 255 characters, but is {block_id}"
+            )
+        self.block_id = block_id if block_id else self.generate_block_id()
+        super().__init__(btype=btype)
+    
+    @staticmethod
+    def generate_block_id():
+        return str(uuid.uuid4())
 
 
 class ActionsBlock(LayoutBlock):
