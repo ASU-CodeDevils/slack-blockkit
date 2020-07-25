@@ -31,11 +31,9 @@ def test_get_information_block():
     link = "https://codedevils.org"
     text = "Visit our website"
     info_block = get_information_block(link=link, text=text)
-    info_block.pop("block_id")
     comp_block = MarkdownTextObject(
         text=":information_source: *<{}|{}>*".format(link, text)
     ).render()
-    comp_block.pop("block_id")
     assert info_block == comp_block
 
 
@@ -83,14 +81,12 @@ def test_get_task_block():
     assert task_block == [
         {
             "type": task_block[0]["type"],
-            "block_id": task_block[0]["block_id"],
             "text": task_block[0]["text"],
             "emoji": task_block[0]["emoji"],
             "verbatim": task_block[0]["verbatim"]
         },
         {
             "type": task_block[1]["type"],
-            "block_id": task_block[1]["block_id"],
             "text": task_block[1]["text"],
             "emoji": task_block[1]["emoji"],
             "verbatim": task_block[1]["verbatim"]
