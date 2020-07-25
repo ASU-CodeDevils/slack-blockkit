@@ -79,12 +79,6 @@ class PlainTextObject(TextObject):
     def __init__(self, text: str, emoji: bool = False):
         super().__init__(btype=TextObject.BTYPE_PLAINTEXT, text=text, emoji=emoji)
 
-    def render(self):
-        vars_dict = super().render()
-        vars_dict.pop("emoji"),
-        vars_dict.pop("verbatim")
-        return vars_dict
-
 
 class MarkdownTextObject(TextObject):
     """
