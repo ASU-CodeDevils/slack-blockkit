@@ -29,6 +29,9 @@ class LayoutBlock(Block):
 
     @staticmethod
     def generate_block_id():
+        """
+        Generates a UUID (v4) to be used as a block ID.
+        """
         return str(uuid.uuid4())
 
 
