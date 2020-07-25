@@ -5,8 +5,8 @@ class RenderMixin:
         """
         Renders the block in a ``dict`` format appropriate for using within message payloads.
 
-        :return: The block as a dict.
-        :rtype: dict
+        Returns:
+            dict: The block as a dict.
         """
         # extract the values and their keys who are not None
         vars_dict = {
@@ -48,6 +48,13 @@ class RenderMixin:
 
 
 class Block(RenderMixin):
+    """
+    Base block class.
+
+    Args:
+        btype (str): Synonymous with Slack's ``type`` parameter.
+    """
+
     def __init__(self, btype: str):
         self.btype = btype
 
