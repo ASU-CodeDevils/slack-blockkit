@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>REST API &mdash; codedevils.org  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GraphQL" href="graphql.html" />
+    <link rel="prev" title="API" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> codedevils.org
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_urls.html">Custom URLs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../languages.html">Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">REST API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#current-version">Current Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#obtain-a-token">Obtain a Token</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#failed-authentication">Failed Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pagination">Pagination</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="graphql.html">GraphQL</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">codedevils.org</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">API</a> &raquo;</li>
+        
+      <li>REST API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/rest.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rest-api">
+<h1>REST API<a class="headerlink" href="#rest-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>You can use CodeDevils REST API to obtain and utilize the data needed to integrate seamlessly
+with CodeDevils.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended you use the <a class="reference internal" href="graphql.html"><span class="doc">GraphQL API</span></a> as it providers greater flexibility
+and lower latency. This API is maintained for existing technologies that only support
+RESTful APIs.</p>
+</div>
+<div class="section" id="current-version">
+<h3>Current Version<a class="headerlink" href="#current-version" title="Permalink to this headline">¶</a></h3>
+<p>This is the first version of the CodeDevils REST API, and therefore is not explicitly labeled
+in the URL.</p>
+</div>
+<div class="section" id="schema">
+<h3>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h3>
+<p>All API access is over HTTPS, and accessed from <cite>https://codedevils.org/api/</cite>. All data is sent
+and received as JSON. Blank fields are marked as <code class="docutils literal notranslate"><span class="pre">null</span></code> instead of being ommitted.</p>
+<p>All timestamps are returned in the format <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DDThh:mm:ss.nnnnnnZ</span></code>. All timestamps are in
+UTC.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>All <code class="docutils literal notranslate"><span class="pre">POST</span></code>, <code class="docutils literal notranslate"><span class="pre">PUT</span></code>, and <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> requests need to end with a slash. Failing to do so will result
+in a <code class="docutils literal notranslate"><span class="pre">500</span></code> level status code.</p>
+</div>
+</div>
+</div>
+<div class="section" id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<p>Authentication is done through <code class="docutils literal notranslate"><span class="pre">Token</span></code> authentication. To obtain a token, contact <a class="reference external" href="mailto:webmaster&#37;&#52;&#48;codedevils&#46;org?subject=Obtain%20Access%20Token">our webmasters</a>.
+Provide the token in the header with each API request:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Authorization</span><span class="p">:</span> <span class="n">Token</span> <span class="n">XXXXXXXXX</span>
+</pre></div>
+</div>
+<p>An example request:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --location --request GET <span class="s1">&#39;https://codedevils.org/api/test&#39;</span> <span class="se">\</span>
+    --header <span class="s1">&#39;Authorization: Token XXXXXXXXX&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="obtain-a-token">
+<h3>Obtain a Token<a class="headerlink" href="#obtain-a-token" title="Permalink to this headline">¶</a></h3>
+<p>Tokens can be obtained with a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request to the <code class="docutils literal notranslate"><span class="pre">api/auth-token</span></code> endpoint with your
+username and password provided by a Webmaster.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --location --request POST <span class="s1">&#39;https://codedevils.org/api/auth-token/&#39;</span> <span class="se">\</span>
+    --header <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+    --data-raw <span class="s1">&#39;{</span>
+<span class="s1">        &quot;username&quot;: &quot;&lt;your username&gt;&quot;,</span>
+<span class="s1">        &quot;password&quot;: &quot;&lt;your password&gt;&quot;</span>
+<span class="s1">    }&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="failed-authentication">
+<h3>Failed Authentication<a class="headerlink" href="#failed-authentication" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="authentication-credentials-were-not-provided">
+<h4>Authentication credentials were not provided<a class="headerlink" href="#authentication-credentials-were-not-provided" title="Permalink to this headline">¶</a></h4>
+<p>If no token is provided, a <code class="docutils literal notranslate"><span class="pre">401</span></code> status code will be returned with the body:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;detail&quot;</span><span class="p">:</span> <span class="s2">&quot;Authentication credentials were not provided.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="invalid-token">
+<h4>Invalid token<a class="headerlink" href="#invalid-token" title="Permalink to this headline">¶</a></h4>
+<p>If the API key is invalid, a <code class="docutils literal notranslate"><span class="pre">401</span></code> status code will be returned with the body:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;detail&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid token.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<p>Use our <a class="reference external" href="https://codedevils.org/api/docs/">Swagger Documentation</a> to see a full list of available APIs.</p>
+</div>
+<div class="section" id="pagination">
+<h3>Pagination<a class="headerlink" href="#pagination" title="Permalink to this headline">¶</a></h3>
+<p>List views (views named ending in <code class="docutils literal notranslate"><span class="pre">_list</span></code> on the <a class="reference external" href="https://codedevils.org/api/docs/">Swagger Documentation</a> page come with offset
+pagination. Pagination by default includes 100 records per call and links to the next set of
+corresponding records (stored in <code class="docutils literal notranslate"><span class="pre">next</span></code>) and previous set (stored in <code class="docutils literal notranslate"><span class="pre">previous</span></code>):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span> <span class="p">{</span>
+     <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="hll">     <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;https://codedevils.org/api/links/?offset=2&quot;</span><span class="p">,</span>
+</span><span class="hll">     <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span>     <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+
+     <span class="p">]</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>You can specify the number of results by passing a <code class="docutils literal notranslate"><span class="pre">limit</span></code> parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://codedevils.org/api/links/?limit=10
+</pre></div>
+</div>
+<p>This will decrease pagination to 10 records per call (or whatever number you specify).</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="graphql.html" class="btn btn-neutral float-right" title="GraphQL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020 CodeDevils - All rights reserved
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

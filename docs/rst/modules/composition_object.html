@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>composition_object &mdash; Slack Blockkit  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="layout_block" href="layout_block.html" />
+    <link rel="prev" title="block_element" href="block_element.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Slack Blockkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Get Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Module Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="block.html">block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block_element.html">block_element</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">composition_object</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#textobject">TextObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plaintextobject">PlainTextObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#markdowntextobject">MarkdownTextObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#confirmobject">ConfirmObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optionobject">OptionObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optiongroupobject">OptionGroupObject</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="layout_block.html">layout_block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_payload.html">view_payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils/index.html">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Slack Blockkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Module Documentation</a> &raquo;</li>
+        
+      <li>composition_object</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/rst/modules/composition_object.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="composition-object">
+<h1>composition_object<a class="headerlink" href="#composition-object" title="Permalink to this headline">¶</a></h1>
+<p>Composition objects can be used inside of block elements and certain message payload fields.
+They are simply common JSON object patterns that you’ll encounter frequently when building blocks
+or composing messages.</p>
+<p>The guide to Block Kit in app surfaces shows you where you can use blocks.</p>
+<p>You can see the <a class="reference external" href="https://api.slack.com/reference/block-kit/composition-objects">full Slack documentation</a> on composition objects to see examples and the most up-to-date styling information.</p>
+<div class="section" id="textobject">
+<h2>TextObject<a class="headerlink" href="#textobject" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.composition_object.TextObject">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.composition_object.</code><code class="sig-name descname">TextObject</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">btype</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">emoji</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">verbatim</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.composition_object.TextObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>An object containing some text, formatted either as <em>plain_text</em> or using <em>mrkdwn</em>, our proprietary
+textual markup that’s just different enough from Markdown to frustrate you.
+<a class="reference external" href="https://api.slack.com/reference/block-kit/composition-objects#text">https://api.slack.com/reference/block-kit/composition-objects#text</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>btype</strong> (<em>str</em>) – The text for the block. This field accepts any of the standard text formatting markup
+when <code class="docutils literal notranslate"><span class="pre">btype</span></code> is <em>mrkdwn</em>.</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – The text for the block. This field accepts any of the standard text formatting markup
+when <code class="docutils literal notranslate"><span class="pre">btype</span></code> is <em>mrkdwn</em>.</p></li>
+<li><p><strong>emoji</strong> (<em>bool</em>) – Indicates whether emojis in a text field should be escaped into the colon emoji format.
+This field is only usable when type is <code class="docutils literal notranslate"><span class="pre">plain_text</span></code>.</p></li>
+<li><p><strong>verbatim</strong> (<em>bool</em>) – When set to false (as is default) URLs will be auto-converted into links, conversation
+names will be link-ified, and certain mentions will be automatically parsed. Using a value of <code class="docutils literal notranslate"><span class="pre">True</span></code>
+will skip any preprocessing of this nature, although you can still include manual parsing strings.
+This field is only usable when <code class="docutils literal notranslate"><span class="pre">btype</span></code> is <em>mrkdwn</em>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="plaintextobject">
+<h2>PlainTextObject<a class="headerlink" href="#plaintextobject" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.composition_object.PlainTextObject">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.composition_object.</code><code class="sig-name descname">PlainTextObject</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">emoji</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.composition_object.PlainTextObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a plain-text object. This is a <a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code></a> where <code class="docutils literal notranslate"><span class="pre">btype</span></code> is set to <em>plain_text</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>str</em>) – The text for the block. This field accepts any of the standard text formatting markup
+when <code class="docutils literal notranslate"><span class="pre">btype</span></code> is <em>mrkdwn</em>.</p></li>
+<li><p><strong>emoji</strong> (<em>bool</em>) – Indicates whether emojis in a text field should be escaped into the colon emoji format.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="markdowntextobject">
+<h2>MarkdownTextObject<a class="headerlink" href="#markdowntextobject" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.composition_object.MarkdownTextObject">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.composition_object.</code><code class="sig-name descname">MarkdownTextObject</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">emoji</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">verbatim</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.composition_object.MarkdownTextObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a markdown text object. This is a <a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code></a> where <code class="docutils literal notranslate"><span class="pre">btype</span></code> is set to <em>mrkdwn</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>str</em>) – The text for the block. This field accepts any of the standard text formatting markup
+when <code class="docutils literal notranslate"><span class="pre">btype</span></code> is <em>mrkdwn</em>.</p></li>
+<li><p><strong>verbatim</strong> (<em>bool</em>) – When set to false (as is default) URLs will be auto-converted into links, conversation
+names will be link-ified, and certain mentions will be automatically parsed. Using a value of <code class="docutils literal notranslate"><span class="pre">True</span></code>
+will skip any preprocessing of this nature, although you can still include manual parsing strings.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="confirmobject">
+<h2>ConfirmObject<a class="headerlink" href="#confirmobject" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.composition_object.ConfirmObject">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.composition_object.</code><code class="sig-name descname">ConfirmObject</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">title</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a></span></em>, <em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a></span></em>, <em class="sig-param"><span class="n">confirm</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a></span></em>, <em class="sig-param"><span class="n">deny</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a></span></em>, <em class="sig-param"><span class="n">style</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'primary'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.composition_object.ConfirmObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>An object that defines a dialog that provides a confirmation step to any interactive element. This dialog will ask
+the user to confirm their action by offering a confirm and deny buttons. For more information, see:
+<a class="reference external" href="https://api.slack.com/reference/block-kit/composition-objects#confirm">https://api.slack.com/reference/block-kit/composition-objects#confirm</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a>) – A <code class="docutils literal notranslate"><span class="pre">plain_text</span></code> -only <a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code></a> that defines the dialog’s title. Maximum length
+for this field is 100 characters.</p></li>
+<li><p><strong>text</strong> (<a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a>) – A <a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code></a> that defines the explanatory text that appears in the confirm dialog.
+Maximum length for the text in this field is 300 characters.</p></li>
+<li><p><strong>confirm</strong> (<a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a>) – A <code class="docutils literal notranslate"><span class="pre">plain_text</span></code> -only <a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code></a> to define the text of the button that confirms
+the action. Maximum length for the text in this field is 30 characters.</p></li>
+<li><p><strong>deny</strong> (<a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a>) – A <code class="docutils literal notranslate"><span class="pre">plain_text</span></code> -only <a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code></a> to define the text of the button that cancels
+the action. Maximum length for the text in this field is 30 characters.</p></li>
+<li><p><strong>style</strong> (<em>str</em>) – Defines the color scheme applied to the confirm button. A value of <code class="docutils literal notranslate"><span class="pre">danger</span></code> will display the
+button with a red background on desktop, or red text on mobile. A value of <code class="docutils literal notranslate"><span class="pre">primary</span></code> will display the
+button with a green background on desktop, or blue text on mobile. If this field is not provided, the
+default value will be <code class="docutils literal notranslate"><span class="pre">primary</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="optionobject">
+<h2>OptionObject<a class="headerlink" href="#optionobject" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.composition_object.OptionObject">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.composition_object.</code><code class="sig-name descname">OptionObject</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">description</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.composition_object.OptionObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>An object that represents a single selectable item in a select menu, multi-select menu, radio button group,
+or overflow menu. For more information, see:
+<a class="reference external" href="https://api.slack.com/reference/block-kit/composition-objects#option">https://api.slack.com/reference/block-kit/composition-objects#option</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a>) – A <a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code></a> that defines the text shown in the option on the menu. Overflow,
+select, and multi-select menus can only use <code class="docutils literal notranslate"><span class="pre">plain_text</span></code> objects, while radio buttons and checkboxes
+can use <code class="docutils literal notranslate"><span class="pre">mrkdwn</span></code> text objects. Maximum length for the text in this field is 75 characters.</p></li>
+<li><p><strong>value</strong> (<em>str</em>) – The string value that will be passed to your app when this option is chosen. Maximum length
+for this field is 75 characters.</p></li>
+<li><p><strong>description</strong> (<a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a>) – Optional; A <code class="docutils literal notranslate"><span class="pre">plain_text</span></code> only <a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code></a> that defines a line of
+descriptive text shown below the text field beside the radio button. Maximum length for the text
+object within this field is 75 characters.</p></li>
+<li><p><strong>url</strong> (<em>str</em>) – A URL to load in the user’s browser when the option is clicked. The <code class="docutils literal notranslate"><span class="pre">url</span></code> attribute is only
+available in overflow menus. Maximum length for this field is 3000 characters. If you’re using <code class="docutils literal notranslate"><span class="pre">url</span></code>,
+you’ll still receive an interaction payload and will need to send an acknowledgement response.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="optiongroupobject">
+<h2>OptionGroupObject<a class="headerlink" href="#optiongroupobject" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.composition_object.OptionGroupObject">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.composition_object.</code><code class="sig-name descname">OptionGroupObject</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a></span></em>, <em class="sig-param"><span class="n">options</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#slack_blockkit.composition_object.OptionObject" title="slack_blockkit.composition_object.OptionObject">slack_blockkit.composition_object.OptionObject</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.composition_object.OptionGroupObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides a way to group options in a select menu or multi-select menu. For more information, see:
+<a class="reference external" href="https://api.slack.com/reference/block-kit/composition-objects#option_group">https://api.slack.com/reference/block-kit/composition-objects#option_group</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> (<a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a>) – A <code class="docutils literal notranslate"><span class="pre">plain_text</span></code> only <a class="reference internal" href="#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code></a> that defines the label shown above
+this group of options. Maximum length for the text in this field is 75 characters.</p></li>
+<li><p><strong>options</strong> (<em>List</em><em>[</em><a class="reference internal" href="#slack_blockkit.composition_object.OptionObject" title="slack_blockkit.composition_object.OptionObject"><em>OptionObject</em></a><em>]</em>) – An array of <a class="reference internal" href="#slack_blockkit.composition_object.OptionObject" title="slack_blockkit.composition_object.OptionObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptionObject</span></code></a> that belong to this specific group.
+Maximum of 100 items.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="layout_block.html" class="btn btn-neutral float-right" title="layout_block" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="block_element.html" class="btn btn-neutral float-left" title="block_element" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020 CodeDevils - All rights reserved
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

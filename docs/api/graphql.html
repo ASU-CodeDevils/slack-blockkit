@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GraphQL &mdash; codedevils.org  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="REST API" href="rest.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> codedevils.org
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_urls.html">Custom URLs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emails.html">Emails</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../languages.html">Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../versioning.html">Versioning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rest.html">REST API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GraphQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#current-version">Current Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#failed-authentication">Failed Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#relay">Relay</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#development">Development</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">codedevils.org</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">API</a> &raquo;</li>
+        
+      <li>GraphQL</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/graphql.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="graphql">
+<h1>GraphQL<a class="headerlink" href="#graphql" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://graphql.org/"><img alt="GraphQL" src="data:image/png;base64,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" /></a>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://graphql.org/">GraphQL</a> is a query language for APIs and aims to replace traditional RESTful APIs
+with more flexiblility. It allows for dynamic requests that match the end user’s needs
+while providing standardized documentation all from a single endpoint.</p>
+<div class="section" id="current-version">
+<h3>Current Version<a class="headerlink" href="#current-version" title="Permalink to this headline">¶</a></h3>
+<p>This is the first version of the CodeDevils GraphQL API. Unlike RESTful APIs, GraphQL
+is serviced from a single endpoint (<code class="docutils literal notranslate"><span class="pre">/api/graphql</span></code>) and does not explicitly state
+versions.</p>
+</div>
+<div class="section" id="schema">
+<h3>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h3>
+<p>All API access is over HTTPS, and accessed from <cite>https://codedevils.org/api/graphql/</cite>. As per
+GraphQL standard, all data is sent and received as JSON.</p>
+<p>All timestamps are returned in the format <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DDThh:mm:ss.nnnnnn+00:00</span></code>. All timestamps are in
+UTC.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">api/graphql/</span></code> endpoint must end in a slash (<code class="docutils literal notranslate"><span class="pre">/</span></code>). Failing to do so will result in
+a <code class="docutils literal notranslate"><span class="pre">500</span></code> level status code.</p>
+</div>
+</div>
+</div>
+<div class="section" id="authentication">
+<span id="authentication-overview"></span><h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<p>Authentication is done through <code class="docutils literal notranslate"><span class="pre">Token</span></code> authentication. To obtain a token, contact <a class="reference external" href="mailto:webmaster&#37;&#52;&#48;codedevils&#46;org?subject=Obtain%20Access%20Token">our webmasters</a>.
+Provide the token in the header with each API request:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Authorization</span><span class="p">:</span> <span class="n">Token</span> <span class="n">XXXXXXXXX</span>
+</pre></div>
+</div>
+<div class="section" id="failed-authentication">
+<h3>Failed Authentication<a class="headerlink" href="#failed-authentication" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="permission-denied">
+<h4>Permission Denied<a class="headerlink" href="#permission-denied" title="Permalink to this headline">¶</a></h4>
+<p>You will get a permission denied error message if you fail to pass a token:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;permission denied&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Make sure your authorization is the header format specified in <a class="reference internal" href="#authentication-overview"><span class="std std-ref">Authentication</span></a>.</p>
+</div>
+<div class="section" id="invalid-token">
+<h4>Invalid token<a class="headerlink" href="#invalid-token" title="Permalink to this headline">¶</a></h4>
+<p>You will get an invalid token error message if the token you pass is invalid:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Invalid token.&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To confirm your token, send your username to <a class="reference external" href="mailto:webmaster&#37;&#52;&#48;codedevils&#46;org?subject=Obtain%20Access%20Token">our webmasters</a> and they will confirm
+your token.</p>
+</div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<p>The most recent documentation can be found through our <a class="reference external" href="https://codedevils.org/api/graphql/">GraphiQL</a> page. Here you can check
+out query and mutation documentation, as well as run live tests and one-off queries.</p>
+</div>
+<div class="section" id="relay">
+<h3>Relay<a class="headerlink" href="#relay" title="Permalink to this headline">¶</a></h3>
+<p>The CodeDevils GraphQL uses the Relay server standard to handle pagination. Not all nodes
+require the pagination as it only becomes effective with larger datasets (i.e. users), but
+is used regardless to keep things standardized.</p>
+<p>You can learn more about Relays with this <a class="reference external" href="https://docs.graphene-python.org/projects/django/en/latest/tutorial-relay/">GraphQL relay tutorial</a>. Think of relays as
+linked lists. Relays are enabled for all <code class="docutils literal notranslate"><span class="pre">NodeConnection</span></code> classes. Take for example
+the <code class="docutils literal notranslate"><span class="pre">CustomUrlNodeConnection</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">links</span><span class="p">(</span><span class="n">before</span><span class="p">:</span> <span class="n">String</span>
+      <span class="n">after</span><span class="p">:</span> <span class="n">String</span>
+      <span class="n">first</span><span class="p">:</span> <span class="n">Int</span>
+      <span class="n">last</span><span class="p">:</span> <span class="n">Int</span>
+      <span class="n">name</span><span class="p">:</span> <span class="n">String</span>
+      <span class="n">name_Icontains</span><span class="p">:</span> <span class="n">String</span>
+      <span class="n">name_Istartswith</span><span class="p">:</span> <span class="n">String</span>
+      <span class="n">slug</span><span class="p">:</span> <span class="n">String</span>
+<span class="p">):</span> <span class="n">CustomUrlNodeConnection</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">before:</span> <span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">after:</span> <span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">first:</span> <span class="pre">Int</span></code>, and <code class="docutils literal notranslate"><span class="pre">last:</span> <span class="pre">Int</span></code> are filters
+that can be used to navigate the nodes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">before:</span> <span class="pre">String</span></code> - Filter all objects before a given ID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">after:</span> <span class="pre">String</span></code> - Filter all objects after a given ID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">first:</span> <span class="pre">Int</span></code> - Get the first # number of results.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last:</span> <span class="pre">Int</span></code> - Get the last # number of results.</p></li>
+</ul>
+<p>A <code class="docutils literal notranslate"><span class="pre">CustomUrlNodeConnection</span></code> has 2 components:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pageInfo:</span> <span class="pre">PageInfo!</span></code> - Pagination data for this connection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edges:</span> <span class="pre">[CustomUrlNodeEdge]!</span></code> - Contains the nodes in this connection. This is the actual data.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">pageInfo</span></code> class contains navigation to navigate between <code class="docutils literal notranslate"><span class="pre">edges</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">domains</span> <span class="p">{</span>
+    <span class="n">pageInfo</span> <span class="p">{</span>
+        <span class="n">hasNextPage</span>
+        <span class="n">hasPreviousPage</span>
+        <span class="n">startCursor</span>
+        <span class="n">lastCursor</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This helps with traversing the edges:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hasNextPage:</span> <span class="pre">Boolean!</span></code> - When paginating forwards, are there more items?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hasPreviousPage:</span> <span class="pre">Boolean!</span></code> - When paginating backwards, are there more items?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">startCursor:</span> <span class="pre">String</span></code> - When paginating backwards, the cursor to continue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">endCursor:</span> <span class="pre">String</span></code> - When paginating forwards, the cursor to continue.</p></li>
+</ul>
+<p>The edges themselves are where the nodes (or the data) are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">domains</span> <span class="p">{</span>
+    <span class="n">edges</span> <span class="p">{</span>
+        <span class="n">cursor</span>
+        <span class="n">node</span> <span class="p">{</span>
+            <span class="nb">id</span>
+            <span class="n">name</span>
+            <span class="n">url</span>
+            <span class="n">slug</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">cursor</span></code> is the base-64 ID of the object and is used to navigate through the edges. The previous
+<code class="docutils literal notranslate"><span class="pre">before</span></code>, <code class="docutils literal notranslate"><span class="pre">after</span></code>, <code class="docutils literal notranslate"><span class="pre">startCursor</span></code>, and <code class="docutils literal notranslate"><span class="pre">endCursor</span></code> are references to these cursor objects. Use
+them to navigate the edges. Say for example we want to grab all the links over multiple pages. The first
+request should look something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">links</span><span class="p">(</span><span class="n">first</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">pageInfo</span> <span class="p">{</span>
+            <span class="n">hasNextPage</span>
+        <span class="p">}</span>
+        <span class="n">edges</span> <span class="p">{</span>
+            <span class="n">cursor</span>
+            <span class="n">node</span> <span class="p">{</span>
+                <span class="n">name</span>
+                <span class="n">slug</span>
+                <span class="n">url</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The result comes out to:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;hasNextPage&quot;</span><span class="p">:</span> <span class="kc">true</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;edges&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;cursor&quot;</span><span class="p">:</span> <span class="s2">&quot;YXJyYXljb25uZW0aW9uOjA=&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;node&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Documentation&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;documentation&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://asu-codedevils.github.io/codedevils_org/&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;cursor&quot;</span><span class="p">:</span> <span class="s2">&quot;YXJyYXljb25uZW0aW9uOjE=&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;node&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;GitHub&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;github&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/ASU-CodeDevils/&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then subsequent requests should take the last cursor (this case is <code class="docutils literal notranslate"><span class="pre">&quot;YXJyYXljb25uZW0aW9uOjE=&quot;</span></code>) and
+make it the <code class="docutils literal notranslate"><span class="pre">after</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">links</span></code> until <code class="docutils literal notranslate"><span class="pre">hasNextPage</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">false</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">links</span><span class="p">(</span><span class="n">first</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">after</span><span class="p">:</span> <span class="s2">&quot;YXJyYXljb25uZW0aW9uOjE=&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">pageInfo</span> <span class="p">{</span>
+            <span class="n">hasNextPage</span>
+        <span class="p">}</span>
+        <span class="n">edges</span> <span class="p">{</span>
+            <span class="n">cursor</span>
+            <span class="n">node</span> <span class="p">{</span>
+                <span class="n">name</span>
+                <span class="n">slug</span>
+                <span class="n">url</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Continue this until <code class="docutils literal notranslate"><span class="pre">hasNextPage</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code>. This is a basic query. For more information, check
+out this <a class="reference external" href="https://docs.graphene-python.org/projects/django/en/latest/tutorial-relay/">GraphQL relay tutorial</a>.</p>
+</div>
+</div>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<p>There are many resources when working with GraphQL. Some of our preferred methods:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://codedevils.org/api/graphql/">GraphiQL</a> - The CodeDevils documentation and GraphQL UI.</p></li>
+<li><p><a class="reference external" href="https://github.com/prisma-labs/graphql-playground">GraphQL Playground</a> - An intuitive GraphQL UI that allows enhanced features on top of <a class="reference external" href="https://codedevils.org/api/graphql/">GraphiQL</a>.</p></li>
+<li><p><a class="reference external" href="https://www.postman.com/">Postman</a> - For those already familiar with Postman, it offers the same Postman architecture with GraphQL-specific body styling.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="rest.html" class="btn btn-neutral float-left" title="REST API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020 CodeDevils - All rights reserved
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Languages &mdash; codedevils.org  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> codedevils.org
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">codedevils.org</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Languages</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/language.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="languages">
+<h1>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h1>
+<p>CodeDevils is a world-wide organization, so we offer translations of the
+website where ever possible to make communication easier.</p>
+<div class="section" id="supported-languages">
+<h2>Supported Languages<a class="headerlink" href="#supported-languages" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Arabic (<cite>ar</cite>)</p></li>
+<li><p>English - US (<cite>en-us</cite>) <em>default</em></p></li>
+<li><p>French (<cite>fr</cite>)</p></li>
+<li><p>Hindi (<cite>hi</cite>)</p></li>
+<li><p>Spanish (<cite>es</cite>)</p></li>
+</ul>
+</div>
+<div class="section" id="translating-the-project">
+<h2>Translating the Project<a class="headerlink" href="#translating-the-project" title="Permalink to this headline">¶</a></h2>
+<p>Languages are defined as locales in the project
+<cite>base settings module &lt;https://github.com/ASU-CodeDevils/codedevils_org/blob/master/config/settings/base.py&gt;</cite>.
+The default is set to <cite>en-us</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="n">env</span><span class="p">(</span><span class="s2">&quot;DJANGO_LANGUAGE_CODE&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;en-us&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can change it by setting the <cite>DJANGO_LANGUAGE_CODE</cite> in your environment file. Languages
+available are located just below that in <cite>LANGUAGES</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LANGUAGES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Spanish&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;en-us&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;English&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;fr&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;French&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;ar&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Arabic&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;nl&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Dutch&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Hindi&quot;</span><span class="p">))</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="locale-translations">
+<h2>Locale translations<a class="headerlink" href="#locale-translations" title="Permalink to this headline">¶</a></h2>
+<p>Property Object (PO) hold translations for each of the languages.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>locale
+├── ar
+│   └── LC_MESSAGES
+│       ├── django.mo
+│       └── django.po
+├── es
+├── fr
+├── hi
+├── nl
+└── README.rst
+</pre></div>
+</div>
+<div class="section" id="update-translations">
+<h3>Update Translations<a class="headerlink" href="#update-translations" title="Permalink to this headline">¶</a></h3>
+<p>Each update to one of the templates requires you to update the corresponding translation.
+You can do so locally by visiting the <cite>rosetta/</cite> endpoint. Here will give you the original
+string with a text field to add the translation:</p>
+<img alt="Rosetta" src="https://codedevils.org/static/img/rosetta.png" />
+<p>Once you’ve completed all translations, you can compile them by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./manage.py compilemessages
+</pre></div>
+</div>
+<p>Or for a specific language:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./manage.py compilemessages -l ar
+</pre></div>
+</div>
+<p>You will need to perform this same compilation on the server once you update the project.</p>
+</div>
+<div class="section" id="start-a-new-language">
+<h3>Start a New Language<a class="headerlink" href="#start-a-new-language" title="Permalink to this headline">¶</a></h3>
+<p>To create a new language locale, simply use the <cite>makemessages</cite> command and specify the
+language code (for this example, we’ll make the German [de] language):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./manage.py makemessages -l de
+</pre></div>
+</div>
+<p>You will see a new folder appear in the <cite>locale/</cite> directory with the language. Update the
+<cite>config.settings.base</cite> settings module with the new language:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LANGUAGES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Spanish&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;en-us&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;English&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;fr&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;French&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;ar&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Arabic&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;nl&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Dutch&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Hindi&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;German&quot;</span><span class="p">)</span>      <span class="c1"># new language</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Once you have translated everything and completed the PO file, you can compile the language
+for use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./manage.py compilemessages -l de
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Kevin Shelley
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

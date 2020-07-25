@@ -1,26 +1,5 @@
-Slack Blockkit Builder
-======================
-
-.. image:: https://travis-ci.com/ASU-CodeDevils/slack-blockkit.svg?branch=master
-    :target: https://travis-ci.com/ASU-CodeDevils/slack-blockkit
-    :alt: Build
-.. image:: https://codecov.io/gh/ASU-CodeDevils/slack-blockkit/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/ASU-CodeDevils/slack-blockkit
-    :alt: Codecov
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/ambv/black
-    :alt: Black code style
-.. image:: https://img.shields.io/badge/license-MIT-blue.svg
-    :target: https://opensource.org/licenses/MIT
-    :alt: License
-.. image:: https://img.shields.io/badge/chat-slack-pink.svg
-    :target: https://codedevils.slack.com/archives/GPNBSDM27
-    :alt: Slack
-
-Slack Blockkit Builder is a simple utility for developing code blocks for `Slack's Block Kit`_. It provides
-Pythonic-style blocks to allow for dynamic generation of block kits where copy-and-paste just won't do it.
-
-Visit the `documentation`_ for more examples and method/class docs.
+Get Started
+===========
 
 Installation
 ------------
@@ -133,7 +112,7 @@ This will print out to the console:
         https://app.slack.com/block-kit-builder/#{"blocks": [{"block_id": "96dc84a2-d517-4a75-ab83-193770df62cc", "text": {"text": "Section 1", "emoji": false, "type": "plain_text"}, "type": "section"}, {"block_id": "182c3fc6-3d7b-464e-8fb9-0fb832e8cd02", "text": {"text": "Section 2", "emoji": false, "type": "plain_text"}, "type": "section"}]}
 
 Copy and pasting this into your browser will open up `Slack's block kit builder`_ with the blocks
-you created. 
+you created.
 
 Utils
 *****
@@ -146,7 +125,6 @@ Common composite blocks are implemented for you in ``slack_blockkit.utils`` and 
 * ``get_information_block`` - Returns an information block, which is a section with an info icon followed by linked text.
 * ``get_checkmark`` - *Not* a block, but rather an emoji string for a checkmark. Pass ``True`` for a checked mark and ``False`` for unchecked.
 
-.. _`documentation`: https://github.io/ASU-CodeDevils/slack-blockkit
 .. _`Block elements`: https://api.slack.com/reference/block-kit/block-elements
 .. _`Interactive components`: https://api.slack.com/reference/block-kit/interactive-components
 .. _`Composition objects`: https://api.slack.com/reference/block-kit/composition-objects

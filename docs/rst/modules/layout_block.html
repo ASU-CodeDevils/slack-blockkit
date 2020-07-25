@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>layout_block &mdash; Slack Blockkit  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="view_payload" href="view_payload.html" />
+    <link rel="prev" title="composition_object" href="composition_object.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Slack Blockkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Get Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Module Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="block.html">block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="block_element.html">block_element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="composition_object.html">composition_object</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">layout_block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#layoutblock">LayoutBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#actionsblock">ActionsBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contextblock">ContextBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dividerblock">DividerBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fileblock">FileBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#imageblock">ImageBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputblock">InputBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sectionblock">SectionBlock</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="view_payload.html">view_payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils/index.html">Utils</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Slack Blockkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Module Documentation</a> &raquo;</li>
+        
+      <li>layout_block</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/rst/modules/layout_block.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="layout-block">
+<h1>layout_block<a class="headerlink" href="#layout-block" title="Permalink to this headline">¶</a></h1>
+<p>Blocks are a series of components that can be combined to create visually rich and compellingly interactive messages.</p>
+<p>Read our guide to <a class="reference external" href="https://api.slack.com/block-kit/building">building block layouts</a> to learn where and how to use each of these components. You can include
+up to 50 blocks in each message, and 100 blocks in modals or home tabs.</p>
+<p>You can see the <a class="reference external" href="https://api.slack.com/reference/block-kit/blocks">full Slack documentation</a> on layout blocks to see examples and the most up-to-date styling information.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">block_id</span></code> can be specified for all layout block objects. If one is not specified, a randomly-generated UUID (v4)
+will be assigned. UUID v1 poses security risks as it exposes the MAC address of the server. For more about the
+differences in the 2 versions, read <a class="reference external" href="https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/">this blog</a>.</p>
+</div>
+<div class="section" id="layoutblock">
+<h2>LayoutBlock<a class="headerlink" href="#layoutblock" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.layout_block.LayoutBlock">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.layout_block.</code><code class="sig-name descname">LayoutBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">btype</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">block_id</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.layout_block.LayoutBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a basic layout block. For more information, see: <a class="reference external" href="https://api.slack.com/reference/block-kit/blocks">https://api.slack.com/reference/block-kit/blocks</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>btype</strong> (<em>str</em>) – Synonymous with Slack’s <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter.</p></li>
+<li><p><strong>block_id</strong> (<em>str</em>) – <p>A string acting as a unique identifier for a block. You can use this <code class="docutils literal notranslate"><span class="pre">block_id</span></code> when you
+receive an interaction payload to identify the source of the action. If not specified, a <code class="docutils literal notranslate"><span class="pre">block_id</span></code>
+will be generated. Maximum length for this field is 255 characters.</p>
+<p>If not <code class="docutils literal notranslate"><span class="pre">block_id</span></code> is specified, a <code class="docutils literal notranslate"><span class="pre">block_id</span></code> is set to a random UUID v4.</p>
+</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="slack_blockkit.layout_block.LayoutBlock.generate_block_id">
+<em class="property">static </em><code class="sig-name descname">generate_block_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#slack_blockkit.layout_block.LayoutBlock.generate_block_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a UUID (v4) to be used as a block ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A random UUID (v4) as a string.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="actionsblock">
+<h2>ActionsBlock<a class="headerlink" href="#actionsblock" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.layout_block.ActionsBlock">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.layout_block.</code><code class="sig-name descname">ActionsBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elements</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="block_element.html#slack_blockkit.block_element.BlockElement" title="slack_blockkit.block_element.BlockElement">slack_blockkit.block_element.BlockElement</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">block_id</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.layout_block.ActionsBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A block that is used to hold interactive elements. For more information, see:
+<a class="reference external" href="https://api.slack.com/reference/block-kit/blocks#actions">https://api.slack.com/reference/block-kit/blocks#actions</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elements</strong> (<em>List</em><em>[</em><a class="reference internal" href="block_element.html#slack_blockkit.block_element.BlockElement" title="slack_blockkit.block_element.BlockElement"><em>BlockElement</em></a><em>]</em>) – An array of interactive element objects - buttons, select menus, overflow menus,
+or date pickers. There is a maximum of 5 elements in each action block.</p></li>
+<li><p><strong>block_id</strong> (<em>str</em>) – A string acting as a unique identifier for a block. You can use this <code class="docutils literal notranslate"><span class="pre">block_id</span></code> when you
+receive an interaction payload to identify the source of the action. If not specified, a <code class="docutils literal notranslate"><span class="pre">block_id</span></code>
+will be generated. Maximum length for this field is 255 characters.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="contextblock">
+<h2>ContextBlock<a class="headerlink" href="#contextblock" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.layout_block.ContextBlock">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.layout_block.</code><code class="sig-name descname">ContextBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elements</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">block_id</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.layout_block.ContextBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays message context, which can include both images and text. For more information, see:
+<a class="reference external" href="https://api.slack.com/reference/block-kit/blocks#context">https://api.slack.com/reference/block-kit/blocks#context</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elements</strong> (<em>List</em><em>[</em><a class="reference internal" href="block_element.html#slack_blockkit.block_element.BlockElement" title="slack_blockkit.block_element.BlockElement"><em>BlockElement</em></a><em>]</em>) – An array of <code class="xref py py-class docutils literal notranslate"><span class="pre">ImageElement</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">TextObjects</span></code>. Maximum number of
+items is 10.</p></li>
+<li><p><strong>block_id</strong> (<em>str</em>) – A string acting as a unique identifier for a block. You can use this <code class="docutils literal notranslate"><span class="pre">block_id</span></code> when you
+receive an interaction payload to identify the source of the action. If not specified, a <code class="docutils literal notranslate"><span class="pre">block_id</span></code>
+will be generated. Maximum length for this field is 255 characters.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="dividerblock">
+<h2>DividerBlock<a class="headerlink" href="#dividerblock" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.layout_block.DividerBlock">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.layout_block.</code><code class="sig-name descname">DividerBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">block_id</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.layout_block.DividerBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A content divider, like an <code class="docutils literal notranslate"><span class="pre">&lt;hr&gt;</span></code>, to split up different blocks inside of a message. The divider block is nice
+and neat, requiring only a type.For more information, see: <a class="reference external" href="https://api.slack.com/reference/block-kit/blocks#divider">https://api.slack.com/reference/block-kit/blocks#divider</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>block_id</strong> (<em>str</em>) – A string acting as a unique identifier for a block. You can use this <code class="docutils literal notranslate"><span class="pre">block_id</span></code> when you
+receive an interaction payload to identify the source of the action. If not specified, a <code class="docutils literal notranslate"><span class="pre">block_id</span></code>
+will be generated. Maximum length for this field is 255 characters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="fileblock">
+<h2>FileBlock<a class="headerlink" href="#fileblock" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.layout_block.FileBlock">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.layout_block.</code><code class="sig-name descname">FileBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">external_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">source</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'remote'</span></em>, <em class="sig-param"><span class="n">block_id</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.layout_block.FileBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays a remote file. For more information, see:
+<a class="reference external" href="https://api.slack.com/reference/block-kit/blocks#file">https://api.slack.com/reference/block-kit/blocks#file</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>external_id</strong> (<em>str</em>) – The external unique ID for this file.</p></li>
+<li><p><strong>source</strong> (<em>str</em>) – At the moment, <code class="docutils literal notranslate"><span class="pre">source</span></code> will always be remote for a <em>remote</em> file.</p></li>
+<li><p><strong>block_id</strong> (<em>str</em>) – A string acting as a unique identifier for a block. You can use this <code class="docutils literal notranslate"><span class="pre">block_id</span></code> when you
+receive an interaction payload to identify the source of the action. If not specified, a <code class="docutils literal notranslate"><span class="pre">block_id</span></code>
+will be generated. Maximum length for this field is 255 characters.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="imageblock">
+<h2>ImageBlock<a class="headerlink" href="#imageblock" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.layout_block.ImageBlock">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.layout_block.</code><code class="sig-name descname">ImageBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">alt_text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">title</span><span class="p">:</span> <span class="n"><a class="reference internal" href="composition_object.html#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">block_id</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.layout_block.ImageBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple image block, designed to make those cat photos really pop. For more information, see:
+<a class="reference external" href="https://api.slack.com/reference/block-kit/blocks#image">https://api.slack.com/reference/block-kit/blocks#image</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image_url</strong> (<em>str</em>) – The URL of the image to be displayed. Maximum length for this field is 3000 characters.</p></li>
+<li><p><strong>alt_text</strong> (<em>str</em>) – A plain-text summary of the image. This should not contain any markup. Maximum length for
+this field is 2000 characters.</p></li>
+<li><p><strong>title</strong> (<a class="reference internal" href="composition_object.html#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a>) – An optional title for the image in the form of a <code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code> that can only be
+of type: <code class="docutils literal notranslate"><span class="pre">plain_text</span></code>. Maximum length for the text in this field is 2000 characters.</p></li>
+<li><p><strong>block_id</strong> (<em>str</em>) – A string acting as a unique identifier for a block. You can use this <code class="docutils literal notranslate"><span class="pre">block_id</span></code> when you
+receive an interaction payload to identify the source of the action. If not specified, a <code class="docutils literal notranslate"><span class="pre">block_id</span></code>
+will be generated. Maximum length for this field is 255 characters.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="inputblock">
+<h2>InputBlock<a class="headerlink" href="#inputblock" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.layout_block.InputBlock">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.layout_block.</code><code class="sig-name descname">InputBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span><span class="p">:</span> <span class="n"><a class="reference internal" href="composition_object.html#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a></span></em>, <em class="sig-param"><span class="n">element</span><span class="p">:</span> <span class="n"><a class="reference internal" href="block_element.html#slack_blockkit.block_element.BlockElement" title="slack_blockkit.block_element.BlockElement">slack_blockkit.block_element.BlockElement</a></span></em>, <em class="sig-param"><span class="n">block_id</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hint</span><span class="p">:</span> <span class="n"><a class="reference internal" href="composition_object.html#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">optional</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.layout_block.InputBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A block that collects information from users - it can hold a plain-text input element, a select menu element,
+a multi-select menu element, or a datepicker. For more information, see:
+<a class="reference external" href="https://api.slack.com/reference/block-kit/blocks#input">https://api.slack.com/reference/block-kit/blocks#input</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> (<a class="reference internal" href="composition_object.html#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a>) – A label that appears above an input element in the form of a <code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code> that
+must have type of <code class="docutils literal notranslate"><span class="pre">plain_text</span></code>. Maximum length for the text in this field is 2000 characters.</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="block_element.html#slack_blockkit.block_element.BlockElement" title="slack_blockkit.block_element.BlockElement"><em>BlockElement</em></a>) – An plain-text input element, a select menu element, a multi-select menu element, or a
+datepicker.</p></li>
+<li><p><strong>block_id</strong> (<em>str</em>) – A string acting as a unique identifier for a block. You can use this <code class="docutils literal notranslate"><span class="pre">block_id</span></code> when you
+receive an interaction payload to identify the source of the action. If not specified, a <code class="docutils literal notranslate"><span class="pre">block_id</span></code>
+will be generated. Maximum length for this field is 255 characters.</p></li>
+<li><p><strong>hint</strong> (<a class="reference internal" href="composition_object.html#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a>) – An optional hint that appears below an input element in a lighter grey. It must be a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code> with a type of <code class="docutils literal notranslate"><span class="pre">plain_text</span></code>. Maximum length for the text in this field is 2000
+characters.</p></li>
+<li><p><strong>optional</strong> (<em>bool</em>) – A boolean that indicates whether the input element may be empty when a user submits the modal.
+Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sectionblock">
+<h2>SectionBlock<a class="headerlink" href="#sectionblock" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="slack_blockkit.layout_block.SectionBlock">
+<em class="property">class </em><code class="sig-prename descclassname">slack_blockkit.layout_block.</code><code class="sig-name descname">SectionBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n"><a class="reference internal" href="composition_object.html#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a></span></em>, <em class="sig-param"><span class="n">block_id</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="composition_object.html#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject">slack_blockkit.composition_object.TextObject</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">accessory</span><span class="p">:</span> <span class="n"><a class="reference internal" href="block_element.html#slack_blockkit.block_element.BlockElement" title="slack_blockkit.block_element.BlockElement">slack_blockkit.block_element.BlockElement</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#slack_blockkit.layout_block.SectionBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic section block. For more information, see: <a class="reference external" href="https://api.slack.com/reference/block-kit/blocks#section">https://api.slack.com/reference/block-kit/blocks#section</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference internal" href="composition_object.html#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a>) – The text for the block, in the form of a <code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code>. Maximum length for the text
+in this field is 3000 characters. This field is not required if a valid array of fields objects is provided
+instead.</p></li>
+<li><p><strong>block_id</strong> (<em>str</em>) – A string acting as a unique identifier for a block. You can use this <code class="docutils literal notranslate"><span class="pre">block_id</span></code> when you
+receive an interaction payload to identify the source of the action. If not specified, a <code class="docutils literal notranslate"><span class="pre">block_id</span></code>
+will be generated. Maximum length for this field is 255 characters.</p></li>
+<li><p><strong>fields</strong> (<em>List</em><em>[</em><a class="reference internal" href="composition_object.html#slack_blockkit.composition_object.TextObject" title="slack_blockkit.composition_object.TextObject"><em>TextObject</em></a><em>]</em>) – An array of <code class="xref py py-class docutils literal notranslate"><span class="pre">TextObject</span></code>. Any text objects included with fields will be
+rendered in a compact format that allows for 2 columns of side-by-side text. Maximum number of items is 10.
+Maximum length for the text in each item is 2000 characters.</p></li>
+<li><p><strong>accessory</strong> (<a class="reference internal" href="block_element.html#slack_blockkit.block_element.BlockElement" title="slack_blockkit.block_element.BlockElement"><em>BlockElement</em></a>) – One of the available <code class="xref py py-class docutils literal notranslate"><span class="pre">ElementObject</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="view_payload.html" class="btn btn-neutral float-right" title="view_payload" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="composition_object.html" class="btn btn-neutral float-left" title="composition_object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020 CodeDevils - All rights reserved
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
