@@ -118,6 +118,34 @@ class FileBlock(LayoutBlock):
         self.source = source
 
 
+class HeaderBlock(LayoutBlock):
+    """
+    Displays a header. For more information, see:
+    https://api.slack.com/reference/block-kit/blocks#header
+
+    Args:
+        text (TextObject): The text for the block, in the form of a :class:`TextObject`. Maximum length for the text
+            in this field is 150 characters.
+        block_id (str): A string acting as a unique identifier for a block. You can use this ``block_id`` when you
+            receive an interaction payload to identify the source of the action. If not specified, a ``block_id``
+            will be generated. Maximum length for this field is 255 characters.
+    """
+
+    def __init__(
+        self,
+        text: TextObject,
+        block_id: str = None,
+    ):
+        super().__init__(btype="header", block_id=block_id)
+
+        if text:
+            text.validate_text_block(
+                max_length=150, required_type=TextObject.BTYPE_PLAINTEXT
+            )
+
+        self.text = text
+
+
 class ImageBlock(LayoutBlock):
     """
     A simple image block, designed to make those cat photos really pop. For more information, see:
