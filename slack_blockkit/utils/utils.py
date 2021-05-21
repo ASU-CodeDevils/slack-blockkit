@@ -4,7 +4,7 @@ from typing import List, Type
 
 from slack_blockkit.block import Block
 
-Blocks = List[dict]
+Blocks = List[Block]
 
 
 def get_validated_input(
