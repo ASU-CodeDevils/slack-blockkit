@@ -307,8 +307,8 @@ class PlainTextInputElement(BlockElement):
         placeholder: TextObject = None,
         initial_value: str = None,
         multiline: bool = False,
-        min_length: int = 0,
-        max_length: int = 0,
+        min_length: int = None,
+        max_length: int = None,
     ):
         # validate input
         if placeholder:
@@ -316,7 +316,7 @@ class PlainTextInputElement(BlockElement):
                 max_length=150, required_type=TextObject.BTYPE_PLAINTEXT
             )
 
-        if min_length != 0 or max_length != 0:
+        if min_length is not None or max_length is not None:
             if min_length > max_length:
                 raise AttributeError(
                     f"max_length ({max_length}) must be greater than min_length ({min_length})"
