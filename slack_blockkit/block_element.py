@@ -370,3 +370,40 @@ class RadioButtonGroupElement(BlockElement):
         self.options = options
         self.initial_option = intitial_option
         self.confirm = confirm
+
+
+class StaticSelectElement(BlockElement):
+    """
+    This is the simplest form of select menu, with a static list of options passed in when defining the element.
+    For more information, see: https://api.slack.com/reference/block-kit/block-elements#static_select
+
+    Args:
+        action_id (str): An identifier for the action triggered when a menu option is selected. You can use this when
+            you receive an interaction payload to identify the source of the action. Should be unique among all other
+            ``action_id`` used elsewhere by your app. Maximum length for this field is 255 characters.
+        options (List[OptionObject]): An array of :class:`OptionObject`.
+        placeholder (TextObject): Optionall A ``plain_text`` only text object that defines the placeholder text shown
+            in the plain-text input. Maximum length for the text in this field is 150 characters.
+        initial_option (OptionObject): An :class:`OptionObject` that exactly matches one of the options within options.
+            This option will be selected when the radio button group initially loads.
+    """
+
+    def __init__(
+            self,
+            action_id: str,
+            options: List[OptionObject],
+            placeholder: TextObject = None,
+            initial_option: OptionObject = None,
+    ):
+        # validate input
+        if placeholder:
+            placeholder.validate_text_block(
+                max_length=150, required_type=TextObject.BTYPE_PLAINTEXT
+            )
+        if initial_option and initial_option not in options:
+            raise AttributeError("initial_option must be an option within options")
+        super().__init__(btype="static_select", action_id=action_id)
+
+        self.placeholder = placeholder
+        self.initial_option = initial_option
+        self.options = options
